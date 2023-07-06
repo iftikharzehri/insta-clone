@@ -135,14 +135,14 @@ class homeInsta extends StatelessWidget {
             BottomNavigationBarItem(icon: Icon(Icons.person), label: "profile")
           ],
         ),
-        body: TabBarView(
+        body: const TabBarView(
           children: [
-            const homeclass(),
-            const searchClass(),
-            const searchClass(),
-            const searchClass(),
-            const searchClass(),
-            const searchClass(),
+            homeclass(),
+            searchClass(),
+            searchClass(),
+            searchClass(),
+            searchClass(),
+            searchClass(),
           ],
         ),
       ),
