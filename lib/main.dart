@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: homeInsta(),
+      home: searchClass(),
     );
   }
 }
@@ -245,10 +245,36 @@ class searchClass extends StatefulWidget {
 }
 
 class _searchClassState extends State<searchClass> {
+  final TextEditingController _textEditingController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Text("Search"),
+    return Scaffold(
+      body: Column(
+        //
+        //start form here
+        children: [
+          Padding(
+            padding: EdgeInsets.only(top: 20.0),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 8.0),
+              child: TextField(
+                controller: _textEditingController,
+                decoration: InputDecoration(
+                  hintText: "Search...",
+                  suffixIcon: IconButton(
+                    icon: Icon(Icons.clear),
+                    onPressed: () => _textEditingController.clear(),
+                  ),
+                  prefixIcon: IconButton(
+                    icon: Icon(Icons.search),
+                    onPressed: () {},
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
