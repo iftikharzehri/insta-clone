@@ -64,7 +64,7 @@ class _homeInstaState extends State<homeInsta> {
               icon: GestureDetector(
                 onTap: () {
                   // _selectedIndex == 0;
-                  homeclass();
+                  const homeclass();
                 },
                 child: const Icon(
                   Icons.home,
@@ -229,7 +229,7 @@ class _homeclassState extends State<homeclass> {
           //   ),
           // ],
         ),
-        body: Text("home"),
+        body: const Text("home"),
       ),
     );
   }
@@ -249,32 +249,76 @@ class _searchClassState extends State<searchClass> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        //
-        //start form here
-        children: [
-          Padding(
-            padding: EdgeInsets.only(top: 20.0),
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 8.0),
-              child: TextField(
-                controller: _textEditingController,
-                decoration: InputDecoration(
-                  hintText: "Search...",
-                  suffixIcon: IconButton(
-                    icon: Icon(Icons.clear),
-                    onPressed: () => _textEditingController.clear(),
-                  ),
-                  prefixIcon: IconButton(
-                    icon: Icon(Icons.search),
-                    onPressed: () {},
-                  ),
-                ),
-              ),
+      appBar: AppBar(
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.black],
+              // begin: Alignment.topLeft,
+              // end: Alignment.bottomRight
             ),
           ),
-        ],
+        ),
+        title: SizedBox(
+          // height: 80,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 23.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.symmetric(vertical: 15),
+                    hintText: "search...",
+                    border: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: Color.fromARGB(255, 132, 24, 24), width: 0.0),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    suffixIcon: IconButton(
+                      onPressed: () => _textEditingController.clear(),
+                      icon: const Icon(Icons.remove),
+                    ),
+                    prefixIcon: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.search),
+                    ),
+                  ),
+                  onChanged: (value) {
+                    //put the functionality here
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
+      // body: Column(
+      //   //
+      //   //start form here
+      //   children: [
+      //     Padding(
+      //       padding: EdgeInsets.only(top: 20.0),
+      //       child: Container(
+      //         padding: EdgeInsets.symmetric(horizontal: 8.0),
+      //         child: TextField(
+      //           controller: _textEditingController,
+      //           decoration: InputDecoration(
+      //             hintText: "Search...",
+      //             hoverColor: Colors.black38,
+      //             suffixIcon: IconButton(
+      //               icon: Icon(Icons.clear),
+      //               onPressed: () => _textEditingController.clear(),
+      //             ),
+      //             prefixIcon: IconButton(
+      //               icon: Icon(Icons.search),
+      //               onPressed: () {},
+      //             ),
+      //           ),
+      //         ),
+      //       ),
+      //     ),
+      //   ],
+      // ),
     );
   }
 }
@@ -291,7 +335,7 @@ class addPostClass extends StatefulWidget {
 class _addPostClassState extends State<addPostClass> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Text("post class"),
     );
   }
