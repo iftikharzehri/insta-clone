@@ -1,4 +1,7 @@
+// ignore_for_file: camel_case_typ
+
 import 'package:flutter/material.dart';
+// import 'package:path/path.dart';
 // import 'package:path/path.dart';
 
 void main() {
@@ -6,8 +9,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
@@ -19,8 +21,7 @@ class MyApp extends StatelessWidget {
 
 // ignore: camel_case_types
 class homeInsta extends StatefulWidget {
-  const homeInsta({super.key});
-
+  const homeInsta({Key? key}) : super(key: key);
   @override
   State<homeInsta> createState() => _homeInstaState();
 }
@@ -45,132 +46,68 @@ class _homeInstaState extends State<homeInsta> {
             "Instagram",
             style: TextStyle(fontFamily: "LobsterTwo", fontSize: 28),
           ),
-          bottom: TabBar(
-            isScrollable: true,
-            indicator: null,
-            // indicator: BoxDecoration(
-            //   borderRadius: BorderRadius.circular(25),
-            //   color: Colors.blue,
-            // ),
-            tabs: [
-              CircleAvatar(
-                radius: 25,
-                child: ClipOval(
-                  child: Image.asset(
-                    "images/a.png",
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              CircleAvatar(
-                radius: 25,
-                child: ClipOval(
-                  child: Image.asset(
-                    "images/a.png",
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              CircleAvatar(
-                radius: 25,
-                child: ClipOval(
-                  child: Image.asset(
-                    "images/a.png",
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              CircleAvatar(
-                radius: 25,
-                child: ClipOval(
-                  child: Image.asset(
-                    "images/a.png",
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              CircleAvatar(
-                radius: 25,
-                child: ClipOval(
-                  child: Image.asset(
-                    "images/a.png",
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              CircleAvatar(
-                radius: 25,
-                child: ClipOval(
-                  child: Image.asset(
-                    "images/a.png",
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-            ],
-          ),
-
-          actions: const <Widget>[
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(right: 25.0, top: 8),
-                  child: Icon(Icons.favorite_border),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(right: 25, top: 8),
-                  child: Icon(Icons.maps_ugc),
-                )
-              ],
-            ),
+        ),
+        body: IndexedStack(
+          index: _selectedIndex,
+          children: const [
+            homeclass(),
+            searchClass(),
+            addPostClass(),
+            reelsClass(),
+            profileClass(),
           ],
         ),
-        // body: const TabBarView(
-        //   children: [
-        //     homeclass(),
-        //     searchClass(),
-        //     searchClass(),
-        //     searchClass(),
-        //     searchClass(),
-        //     searchClass(),
-        //   ],
-        // ),
         bottomNavigationBar: Theme(
           data: ThemeData(canvasColor: Colors.black),
           child: BottomNavigationBar(
             showSelectedLabels: false,
             showUnselectedLabels: false,
             unselectedItemColor: Colors.white,
-            items: const <BottomNavigationBarItem>[
+            currentIndex: _selectedIndex,
+            selectedItemColor: const Color.fromARGB(255, 163, 65, 65),
+            onTap: _onItemTapped,
+            items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.home_rounded,
-                  size: 30,
+                icon: GestureDetector(
+                  onTap: () {
+                    // _selectedIndex == 0;
+                    homeclass();
+                  },
+                  child: const Icon(
+                    Icons.home,
+                    size: 30,
+                  ),
                 ),
                 label: "home",
               ),
               BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.search_outlined,
-                  size: 30,
+                icon: GestureDetector(
+                  onTap: () {
+                    // _selectedIndex == 1;
+                    // searchClass();
+                  },
+                  child: const Icon(
+                    Icons.search,
+                    size: 30,
+                  ),
                 ),
                 label: "search",
               ),
-              BottomNavigationBarItem(
+              const BottomNavigationBarItem(
                 icon: Icon(
                   Icons.add_box_outlined,
                   size: 30,
                 ),
                 label: "post",
               ),
-              BottomNavigationBarItem(
+              const BottomNavigationBarItem(
                 icon: Icon(
                   Icons.video_call,
                   size: 30,
                 ),
                 label: "reels",
               ),
-              BottomNavigationBarItem(
+              const BottomNavigationBarItem(
                 icon: Icon(
                   Icons.person,
                   size: 30,
@@ -178,9 +115,6 @@ class _homeInstaState extends State<homeInsta> {
                 label: "profile",
               ),
             ],
-            currentIndex: _selectedIndex,
-            selectedItemColor: Colors.white,
-            onTap: _onItemTapped,
           ),
         ),
       ),
@@ -188,9 +122,99 @@ class _homeInstaState extends State<homeInsta> {
   }
 }
 
-class searchClass extends StatelessWidget {
+//home class
+class homeclass extends StatefulWidget {
+  const homeclass({super.key});
+
+  @override
+  State<homeclass> createState() => _homeclassState();
+}
+
+class _homeclassState extends State<homeclass> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        bottom: TabBar(
+          isScrollable: true,
+          indicator: null,
+          // indicator: BoxDecoration(
+          //   borderRadius: BorderRadius.circular(25),
+          //   color: Colors.blue,
+          // ),
+          tabs: [
+            CircleAvatar(
+              radius: 25,
+              child: ClipOval(
+                child: Image.asset(
+                  "images/a.png",
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            CircleAvatar(
+              radius: 25,
+              child: ClipOval(
+                child: Image.asset(
+                  "images/a.png",
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            CircleAvatar(
+              radius: 25,
+              child: ClipOval(
+                child: Image.asset(
+                  "images/a.png",
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            CircleAvatar(
+              radius: 25,
+              child: ClipOval(
+                child: Image.asset(
+                  "images/a.png",
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            CircleAvatar(
+              radius: 25,
+              child: ClipOval(
+                child: Image.asset(
+                  "images/a.png",
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            CircleAvatar(
+              radius: 25,
+              child: ClipOval(
+                child: Image.asset(
+                  "images/a.png",
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+      body: Text("home"),
+    );
+  }
+}
+
+//search class
+
+class searchClass extends StatefulWidget {
   const searchClass({super.key});
 
+  @override
+  State<searchClass> createState() => _searchClassState();
+}
+
+class _searchClassState extends State<searchClass> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
@@ -199,13 +223,56 @@ class searchClass extends StatelessWidget {
   }
 }
 
-class homeclass extends StatelessWidget {
-  const homeclass({super.key});
+//post class
 
+class addPostClass extends StatefulWidget {
+  const addPostClass({super.key});
+
+  @override
+  State<addPostClass> createState() => _addPostClassState();
+}
+
+class _addPostClassState extends State<addPostClass> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Text("post class"),
+    );
+  }
+}
+
+//reels class
+
+class reelsClass extends StatefulWidget {
+  const reelsClass({super.key});
+
+  @override
+  State<reelsClass> createState() => _reelsClassState();
+}
+
+class _reelsClassState extends State<reelsClass> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Text("home class"),
+      body: Text("reels class"),
+    );
+  }
+}
+
+//profil class
+
+class profileClass extends StatefulWidget {
+  const profileClass({super.key});
+
+  @override
+  State<profileClass> createState() => _profileClassState();
+}
+
+class _profileClassState extends State<profileClass> {
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: Text("profile"),
     );
   }
 }
