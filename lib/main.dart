@@ -1,4 +1,4 @@
-// ignore_for_file: camel_case_typ
+// ignore_for_file: camel_case_typ, camel_case_types
 
 import 'package:flutter/material.dart';
 // import 'package:path/path.dart';
@@ -36,86 +36,78 @@ class _homeInstaState extends State<homeInsta> {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 6,
-      child: Scaffold(
-        appBar: AppBar(
-          // toolbarHeight: 80,
-          backgroundColor: Colors.black,
-          title: const Text(
-            "Instagram",
-            style: TextStyle(fontFamily: "LobsterTwo", fontSize: 28),
-          ),
-        ),
-        body: IndexedStack(
-          index: _selectedIndex,
-          children: const [
-            homeclass(),
-            searchClass(),
-            addPostClass(),
-            reelsClass(),
-            profileClass(),
+    return Scaffold(
+      // length: 6,
+      // child: Scaffold(
+
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: const [
+          homeclass(),
+          searchClass(),
+          addPostClass(),
+          reelsClass(),
+          profileClass(),
+        ],
+      ),
+      bottomNavigationBar: Theme(
+        data: ThemeData(canvasColor: Colors.black),
+        child: BottomNavigationBar(
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          unselectedItemColor: Colors.white,
+          currentIndex: _selectedIndex,
+          selectedItemColor: const Color.fromARGB(255, 163, 65, 65),
+          onTap: _onItemTapped,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: GestureDetector(
+                onTap: () {
+                  // _selectedIndex == 0;
+                  homeclass();
+                },
+                child: const Icon(
+                  Icons.home,
+                  size: 30,
+                ),
+              ),
+              label: "home",
+            ),
+            BottomNavigationBarItem(
+              icon: GestureDetector(
+                onTap: () {
+                  // _selectedIndex == 1;
+                  // searchClass();
+                },
+                child: const Icon(
+                  Icons.search,
+                  size: 30,
+                ),
+              ),
+              label: "search",
+            ),
+            const BottomNavigationBarItem(
+              icon: Icon(
+                Icons.add_box_outlined,
+                size: 30,
+              ),
+              label: "post",
+            ),
+            const BottomNavigationBarItem(
+              icon: Icon(
+                Icons.video_call,
+                size: 30,
+              ),
+              label: "reels",
+            ),
+            const BottomNavigationBarItem(
+              icon: Icon(
+                Icons.person,
+                size: 30,
+              ),
+              label: "profile",
+            ),
           ],
-        ),
-        bottomNavigationBar: Theme(
-          data: ThemeData(canvasColor: Colors.black),
-          child: BottomNavigationBar(
-            showSelectedLabels: false,
-            showUnselectedLabels: false,
-            unselectedItemColor: Colors.white,
-            currentIndex: _selectedIndex,
-            selectedItemColor: const Color.fromARGB(255, 163, 65, 65),
-            onTap: _onItemTapped,
-            items: <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: GestureDetector(
-                  onTap: () {
-                    // _selectedIndex == 0;
-                    homeclass();
-                  },
-                  child: const Icon(
-                    Icons.home,
-                    size: 30,
-                  ),
-                ),
-                label: "home",
-              ),
-              BottomNavigationBarItem(
-                icon: GestureDetector(
-                  onTap: () {
-                    // _selectedIndex == 1;
-                    // searchClass();
-                  },
-                  child: const Icon(
-                    Icons.search,
-                    size: 30,
-                  ),
-                ),
-                label: "search",
-              ),
-              const BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.add_box_outlined,
-                  size: 30,
-                ),
-                label: "post",
-              ),
-              const BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.video_call,
-                  size: 30,
-                ),
-                label: "reels",
-              ),
-              const BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.person,
-                  size: 30,
-                ),
-                label: "profile",
-              ),
-            ],
-          ),
         ),
       ),
     );
@@ -133,74 +125,112 @@ class homeclass extends StatefulWidget {
 class _homeclassState extends State<homeclass> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        bottom: TabBar(
-          isScrollable: true,
-          indicator: null,
-          // indicator: BoxDecoration(
-          //   borderRadius: BorderRadius.circular(25),
-          //   color: Colors.blue,
-          // ),
-          tabs: [
-            CircleAvatar(
-              radius: 25,
-              child: ClipOval(
-                child: Image.asset(
-                  "images/a.png",
-                  fit: BoxFit.cover,
+    return DefaultTabController(
+      length: 6,
+      child: Scaffold(
+        appBar: AppBar(
+          // toolbarHeight: 80,
+          backgroundColor: Colors.black,
+          title: const Text(
+            "Instagram",
+            style: TextStyle(fontFamily: "LobsterTwo", fontSize: 28),
+          ),
+
+          actions: const <Widget>[
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(right: 25.0, top: 8),
+                  child: Icon(Icons.favorite_border),
                 ),
-              ),
-            ),
-            CircleAvatar(
-              radius: 25,
-              child: ClipOval(
-                child: Image.asset(
-                  "images/a.png",
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            CircleAvatar(
-              radius: 25,
-              child: ClipOval(
-                child: Image.asset(
-                  "images/a.png",
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            CircleAvatar(
-              radius: 25,
-              child: ClipOval(
-                child: Image.asset(
-                  "images/a.png",
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            CircleAvatar(
-              radius: 25,
-              child: ClipOval(
-                child: Image.asset(
-                  "images/a.png",
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            CircleAvatar(
-              radius: 25,
-              child: ClipOval(
-                child: Image.asset(
-                  "images/a.png",
-                  fit: BoxFit.cover,
-                ),
-              ),
+                Padding(
+                  padding: EdgeInsets.only(right: 25, top: 8),
+                  child: Icon(Icons.maps_ugc),
+                )
+              ],
             ),
           ],
+          bottom: TabBar(
+            isScrollable: true,
+            indicator: null,
+            // indicator: BoxDecoration(
+            //   borderRadius: BorderRadius.circular(25),
+            //   color: Colors.blue,
+            // ),
+            tabs: [
+              CircleAvatar(
+                radius: 25,
+                child: ClipOval(
+                  child: Image.asset(
+                    "images/a.png",
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              CircleAvatar(
+                radius: 25,
+                child: ClipOval(
+                  child: Image.asset(
+                    "images/a.png",
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              CircleAvatar(
+                radius: 25,
+                child: ClipOval(
+                  child: Image.asset(
+                    "images/a.png",
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              CircleAvatar(
+                radius: 25,
+                child: ClipOval(
+                  child: Image.asset(
+                    "images/a.png",
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              CircleAvatar(
+                radius: 25,
+                child: ClipOval(
+                  child: Image.asset(
+                    "images/a.png",
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              CircleAvatar(
+                radius: 25,
+                child: ClipOval(
+                  child: Image.asset(
+                    "images/a.png",
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          // actions: const <Widget>[
+          //   Row(
+          //     children: [
+          //       Padding(
+          //         padding: EdgeInsets.only(right: 25.0, top: 8),
+          //         child: Icon(Icons.favorite_border),
+          //       ),
+          //       Padding(
+          //         padding: EdgeInsets.only(right: 25, top: 8),
+          //         child: Icon(Icons.maps_ugc),
+          //       )
+          //     ],
+          //   ),
+          // ],
         ),
+        body: Text("home"),
       ),
-      body: Text("home"),
     );
   }
 }
