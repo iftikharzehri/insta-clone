@@ -382,128 +382,306 @@ class _profileClassState extends State<profileClass> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.black87,
         title: const Text(
           "iftikhar_zehri",
           style: TextStyle(color: Colors.white),
         ),
         actions: const [
-          Icon(Icons.more_vert, color: Colors.white),
-          Icon(
-            Icons.add_box_outlined,
-            color: Colors.white,
-          )
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Icon(
+              Icons.add_box_outlined,
+              color: Colors.white,
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Icon(
+              Icons.more_vert,
+              color: Colors.white,
+            ),
+          ),
         ],
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0, top: 50),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    CircleAvatar(
-                      radius: 35,
-                      child: ClipOval(
-                        child: Image.asset("images/a.png"),
-                      ),
+      body: Container(
+        color: Colors.black,
+        height: 440,
+        // child: Padding(
+        //   padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0, top: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CircleAvatar(
+                    radius: 35,
+                    child: ClipOval(
+                      child: Image.asset("images/a.png",
+                          height: 100, width: 100, fit: BoxFit.cover),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text(
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(right: 16.0),
+                    child: Row(
+                      children: [
+                        // Padding(
+                        //   padding: EdgeInsets.all(15.0),
+                        // child:
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
                               "30",
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontSize: 20,
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text(
-                              "300",
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                            Text(
+                              "Posts",
+                              style: TextStyle(
+                                // fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                // fontSize: 20,
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text(
-                              "1200",
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                          ],
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              "3432",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontSize: 20,
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
+                            Text(
+                              "Followers",
+                              style: TextStyle(
+                                // fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                // fontSize: 20,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Column(
+                          // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Text(
+                              "655",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontSize: 20,
+                              ),
+                            ),
+                            Text(
+                              "Following",
+                              style: TextStyle(
+                                // fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                // fontSize: 20,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        // ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              const Padding(
-                padding: EdgeInsets.only(
-                  left: 15.0,
-                  top: 12,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "iftikhar zehri",
-                      style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(
+                left: 15.0,
+                top: 12,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "iftikhar zehri",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 3, left: 3),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "artist",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            "@4348325324",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            "CS 💻 student",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            "Programmer 💻 and 🍵😋er",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                        ],
+                  ),
+                  SizedBox(height: 12),
+                  Text(
+                    "Artist",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                  SizedBox(height: 5),
+                  Text(
+                    "@4348325324",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                  SizedBox(height: 5),
+                  Text(
+                    "CS 💻 student",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                  SizedBox(height: 5),
+                  Text(
+                    "Programmer 💻 and 🍵😋er",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 12,
+            ),
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0, right: 8.0, top: 8),
+                  child: SizedBox(
+                    width: double.infinity,
+                    height: 50,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.grey.shade800,
                       ),
-                    )
-                  ],
+                      onPressed: () {},
+                      child: const Align(
+                        alignment: Alignment.topLeft,
+                        child: Column(
+                          children: [
+                            SizedBox(height: 8),
+                            Text(
+                              "Professional dashboard",
+                            ),
+                            SizedBox(
+                              height: 2,
+                            ),
+                            Text(
+                              "45 accounts reached in the last 30 days.",
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
-              )
-            ],
-          ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    left: 8.0,
+                  ),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 197,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.grey.shade800),
+                          onPressed: () {},
+                          child: Text("Edit profile"),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 197,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.grey.shade800),
+                          onPressed: () {},
+                          child: Text("Edit profile"),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(14.0),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    radius: 30,
+                    child: ClipOval(
+                      child: Image.asset(
+                        "images/billieStatus.png",
+                        height: 200,
+                        width: 200,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 8, left: 18.0),
+                    child: CircleAvatar(
+                      backgroundColor: Colors.white,
+                      radius: 30,
+                      child: CircleAvatar(
+                        radius: 25,
+                        backgroundColor: Colors.grey,
+                        child: Icon(
+                          Icons.add,
+                          size: 40,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
         ),
-        // child: GridView.count(
-        //   // Create a grid with 2 columns. If you change the scrollDirection to
-        //   // horizontal, this produces 3 rows.
-        //   crossAxisCount: 3,
-        //   crossAxisSpacing: 4,
-        //   mainAxisSpacing: 1,
-        //   // Generate 100 widgets that display their index in the List.
-        //   children: List.generate(20, (index) {
-        //     return Column(
-        //       children: [
-        //         Padding(
-        //           padding: EdgeInsets.all(3),
-        //           child: Image.asset("images/a.png"),
-        //         ),
-        //       ],
-        //     );
-        //   }),
         // ),
       ),
+      // child: GridView.count(
+      //   // Create a grid with 2 columns. If you change the scrollDirection to
+      //   // horizontal, this produces 3 rows.
+      //   crossAxisCount: 3,
+      //   crossAxisSpacing: 4,
+      //   mainAxisSpacing: 1,
+      //   // Generate 100 widgets that display their index in the List.
+      //   children: List.generate(20, (index) {
+      //     return Column(
+      //       children: [
+      //         Padding(
+      //           padding: EdgeInsets.all(3),
+      //           child: Image.asset("images/a.png"),
+      //         ),
+      //       ],
+      //     );
+      //   }),
+      // ),
     );
   }
 }
