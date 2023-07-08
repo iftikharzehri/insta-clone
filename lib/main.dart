@@ -1,5 +1,5 @@
 // ignore_for_file: camel_case_typ, camel_case_types
-
+import 'dart:io';
 import 'package:flutter/material.dart';
 // import 'package:path/path.dart';
 // import 'package:path/path.dart';
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: searchClass(),
+      home: homeInsta(),
     );
   }
 }
@@ -59,48 +59,36 @@ class _homeInstaState extends State<homeInsta> {
           currentIndex: _selectedIndex,
           selectedItemColor: const Color.fromARGB(255, 163, 65, 65),
           onTap: _onItemTapped,
-          items: <BottomNavigationBarItem>[
+          items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: GestureDetector(
-                onTap: () {
-                  // _selectedIndex == 0;
-                  const homeclass();
-                },
-                child: const Icon(
-                  Icons.home,
-                  size: 30,
-                ),
+              icon: Icon(
+                Icons.home,
+                size: 30,
               ),
               label: "home",
             ),
             BottomNavigationBarItem(
-              icon: GestureDetector(
-                onTap: () {
-                  // _selectedIndex == 1;
-                  // searchClass();
-                },
-                child: const Icon(
-                  Icons.search,
-                  size: 30,
-                ),
+              icon: Icon(
+                Icons.search,
+                size: 30,
               ),
               label: "search",
             ),
-            const BottomNavigationBarItem(
+            BottomNavigationBarItem(
               icon: Icon(
                 Icons.add_box_outlined,
                 size: 30,
               ),
               label: "post",
             ),
-            const BottomNavigationBarItem(
+            BottomNavigationBarItem(
               icon: Icon(
                 Icons.video_call,
                 size: 30,
               ),
               label: "reels",
             ),
-            const BottomNavigationBarItem(
+            BottomNavigationBarItem(
               icon: Icon(
                 Icons.person,
                 size: 30,
@@ -155,7 +143,7 @@ class _homeclassState extends State<homeclass> {
             indicator: null,
             // indicator: BoxDecoration(
             //   borderRadius: BorderRadius.circular(25),
-            //   color: Colors.blue,
+            //   color: Colors. ,
             // ),
             tabs: [
               CircleAvatar(
@@ -164,6 +152,30 @@ class _homeclassState extends State<homeclass> {
                   child: Image.asset(
                     "images/a.png",
                     fit: BoxFit.cover,
+                    height: 100,
+                    width: 100,
+                  ),
+                ),
+              ),
+              CircleAvatar(
+                radius: 25,
+                child: ClipOval(
+                  child: Image.asset(
+                    "images/billieStatus.png",
+                    fit: BoxFit.cover,
+                    height: 100,
+                    width: 100,
+                  ),
+                ),
+              ),
+              CircleAvatar(
+                radius: 25,
+                child: ClipOval(
+                  child: Image.asset(
+                    "images/heartIcon.png",
+                    fit: BoxFit.cover,
+                    height: 100,
+                    width: 100,
                   ),
                 ),
               ),
@@ -173,6 +185,8 @@ class _homeclassState extends State<homeclass> {
                   child: Image.asset(
                     "images/a.png",
                     fit: BoxFit.cover,
+                    height: 100,
+                    width: 100,
                   ),
                 ),
               ),
@@ -182,6 +196,8 @@ class _homeclassState extends State<homeclass> {
                   child: Image.asset(
                     "images/a.png",
                     fit: BoxFit.cover,
+                    height: 100,
+                    width: 100,
                   ),
                 ),
               ),
@@ -191,45 +207,56 @@ class _homeclassState extends State<homeclass> {
                   child: Image.asset(
                     "images/a.png",
                     fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              CircleAvatar(
-                radius: 25,
-                child: ClipOval(
-                  child: Image.asset(
-                    "images/a.png",
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              CircleAvatar(
-                radius: 25,
-                child: ClipOval(
-                  child: Image.asset(
-                    "images/a.png",
-                    fit: BoxFit.cover,
+                    height: 100,
+                    width: 100,
                   ),
                 ),
               ),
             ],
           ),
-          // actions: const <Widget>[
-          //   Row(
-          //     children: [
-          //       Padding(
-          //         padding: EdgeInsets.only(right: 25.0, top: 8),
-          //         child: Icon(Icons.favorite_border),
-          //       ),
-          //       Padding(
-          //         padding: EdgeInsets.only(right: 25, top: 8),
-          //         child: Icon(Icons.maps_ugc),
-          //       )
-          //     ],
-          //   ),
-          // ],
         ),
-        body: const Text("home"),
+        body: Container(
+          color: Colors.pink,
+          height: 700,
+          child: const Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.all(8),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.account_circle,
+                      size: 50.0,
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.all(8),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "iftikhar zehri",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(8),
+                      child: Icon(
+                        Icons.more_vert,
+                        color: Colors.white,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -253,72 +280,54 @@ class _searchClassState extends State<searchClass> {
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [Colors.black],
+              colors: [Colors.black, Colors.black],
               // begin: Alignment.topLeft,
               // end: Alignment.bottomRight
             ),
           ),
         ),
         title: SizedBox(
-          // height: 80,
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 23.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.symmetric(vertical: 15),
-                    hintText: "search...",
-                    border: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                          color: Color.fromARGB(255, 132, 24, 24), width: 0.0),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    suffixIcon: IconButton(
-                      onPressed: () => _textEditingController.clear(),
-                      icon: const Icon(Icons.remove),
-                    ),
-                    prefixIcon: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.search),
+          child: SizedBox(
+            height: 60,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                style: const TextStyle(color: Colors.white),
+                cursorColor: Colors.white,
+                decoration: InputDecoration(
+                  hoverColor: Colors.white,
+                  hintText: "Search...",
+                  hintStyle: const TextStyle(color: Colors.white),
+                  fillColor: Colors.grey,
+                  filled: true,
+                  border: OutlineInputBorder(
+                    borderSide: const BorderSide(
+                        color: Colors.teal, width: 0, style: BorderStyle.none),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  suffixIcon: IconButton(
+                    onPressed: () => _textEditingController.clear(),
+                    icon: const Icon(
+                      Icons.remove_sharp,
+                      color: Colors.white,
                     ),
                   ),
-                  onChanged: (value) {
-                    //put the functionality here
-                  },
+                  prefixIcon: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.search,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
+                onChanged: (value) {
+                  //put the functionality here
+                },
               ),
-            ],
+            ),
           ),
         ),
       ),
-      // body: Column(
-      //   //
-      //   //start form here
-      //   children: [
-      //     Padding(
-      //       padding: EdgeInsets.only(top: 20.0),
-      //       child: Container(
-      //         padding: EdgeInsets.symmetric(horizontal: 8.0),
-      //         child: TextField(
-      //           controller: _textEditingController,
-      //           decoration: InputDecoration(
-      //             hintText: "Search...",
-      //             hoverColor: Colors.black38,
-      //             suffixIcon: IconButton(
-      //               icon: Icon(Icons.clear),
-      //               onPressed: () => _textEditingController.clear(),
-      //             ),
-      //             prefixIcon: IconButton(
-      //               icon: Icon(Icons.search),
-      //               onPressed: () {},
-      //             ),
-      //           ),
-      //         ),
-      //       ),
-      //     ),
-      //   ],
-      // ),
     );
   }
 }
@@ -371,8 +380,130 @@ class profileClass extends StatefulWidget {
 class _profileClassState extends State<profileClass> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Text("profile"),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        title: const Text(
+          "iftikhar_zehri",
+          style: TextStyle(color: Colors.white),
+        ),
+        actions: const [
+          Icon(Icons.more_vert, color: Colors.white),
+          Icon(
+            Icons.add_box_outlined,
+            color: Colors.white,
+          )
+        ],
+      ),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0, top: 50),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    CircleAvatar(
+                      radius: 35,
+                      child: ClipOval(
+                        child: Image.asset("images/a.png"),
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text(
+                              "30",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text(
+                              "300",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text(
+                              "1200",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(
+                  left: 15.0,
+                  top: 12,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "iftikhar zehri",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 3, left: 3),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "artist",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            "@4348325324",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            "CS 💻 student",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            "Programmer 💻 and 🍵😋er",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+        // child: GridView.count(
+        //   // Create a grid with 2 columns. If you change the scrollDirection to
+        //   // horizontal, this produces 3 rows.
+        //   crossAxisCount: 3,
+        //   crossAxisSpacing: 4,
+        //   mainAxisSpacing: 1,
+        //   // Generate 100 widgets that display their index in the List.
+        //   children: List.generate(20, (index) {
+        //     return Column(
+        //       children: [
+        //         Padding(
+        //           padding: EdgeInsets.all(3),
+        //           child: Image.asset("images/a.png"),
+        //         ),
+        //       ],
+        //     );
+        //   }),
+        // ),
+      ),
     );
   }
 }
