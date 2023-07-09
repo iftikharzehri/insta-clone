@@ -1,4 +1,5 @@
 // ignore_for_file: camel_case_typ, camel_case_types
+import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 // import 'package:path/path.dart';
@@ -12,6 +13,11 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final themeData = ThemeData(
+      canvasColor:
+          Colors.black, // Set the background color for BottomNavigationBar
+      // ... other theme configurations
+    );
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: homeInsta(),
@@ -133,7 +139,7 @@ class _homeclassState extends State<homeclass> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(right: 25, top: 8),
-                  child: Icon(Icons.maps_ugc),
+                  child: Icon(Icons.maps_ugc_outlined),
                 )
               ],
             ),
@@ -378,6 +384,7 @@ class profileClass extends StatefulWidget {
 }
 
 class _profileClassState extends State<profileClass> {
+  int _selectedTabIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -688,11 +695,16 @@ class _profileClassState extends State<profileClass> {
             //
             //),
 
-            const DefaultTabController(
+            DefaultTabController(
               length: 3,
               child: TabBar(
+                onTap: (index) {
+                  setState(() {
+                    _selectedTabIndex = index;
+                  });
+                },
                 indicatorColor: Colors.white,
-                tabs: [
+                tabs: const [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -732,96 +744,369 @@ class _profileClassState extends State<profileClass> {
                 ],
               ),
             ),
+            if (_selectedTabIndex == 0)
+              Expanded(
+                child: GridView.count(
+                  crossAxisCount: 3,
+                  primary: false,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  children: List.generate(
+                    100,
+                    (index) {
+                      return ElevatedButton(
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: ((context) {
+                              return Dialog(
+                                child: SizedBox(
+                                  height: 550,
 
-            Expanded(
-              child: GridView.count(
-                crossAxisCount: 3,
-                primary: false,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
-                children: List.generate(
-                  100,
-                  (index) {
-                    return ElevatedButton(
-                      onPressed: () {
-                        showDialog(
-                          context: context,
-                          builder: ((context) {
-                            return Dialog(
-                              child: SizedBox(
-                                height: 600,
-                                width: 720,
-                                // width: double.infinity,
-                                child: Container(
-                                  height: 30,
-                                  width: 30,
-                                  color: Colors.black,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        SizedBox(
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              CircleAvatar(
-                                                radius: 25,
-                                                child: ClipOval(
-                                                  child: Image.asset(
-                                                    "images/a.png",
-                                                    height: 100,
-                                                    width: 100,
-                                                    fit: BoxFit.cover,
+                                  // width: double.infinity,
+                                  child: Container(
+                                    // height: 30,
+                                    // width: 30,
+                                    color: Colors.black,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          SizedBox(
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                CircleAvatar(
+                                                  radius: 25,
+                                                  child: ClipOval(
+                                                    child: Image.asset(
+                                                      "images/a.png",
+                                                      height: 100,
+                                                      width: 100,
+                                                      fit: BoxFit.cover,
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                              const Padding(
-                                                padding: EdgeInsets.all(8.0),
-                                                child: Text(
-                                                  "iftikhar_zehri",
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      color: Colors.white),
+                                                const Padding(
+                                                  padding: EdgeInsets.all(8.0),
+                                                  child: Text(
+                                                    "iftikhar_zehri",
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color: Colors.white),
+                                                  ),
                                                 ),
+                                              ],
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            height: 5,
+                                          ),
+                                          Container(
+                                            color: Colors.black,
+                                            width: double.infinity,
+                                            height: 420,
+                                            child: Image.asset(
+                                              "images/3.jpeg",
+                                              height: double.infinity,
+                                              width: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                          BottomNavigationBar(
+                                            showUnselectedLabels: false,
+                                            showSelectedLabels: false,
+                                            items: const [
+                                              BottomNavigationBarItem(
+                                                backgroundColor: Colors.black,
+                                                icon: Icon(
+                                                  Icons.favorite_outline,
+                                                  color: Colors.white,
+                                                ),
+                                                label: "FAVORITE",
+                                              ),
+                                              BottomNavigationBarItem(
+                                                icon: Icon(
+                                                    Icons.maps_ugc_outlined),
+                                                label: "MESSAGE",
+                                              ),
+                                              BottomNavigationBarItem(
+                                                icon: Icon(Icons.send),
+                                                label: "SHARE",
+                                              ),
+                                              BottomNavigationBarItem(
+                                                icon: Icon(
+                                                    Icons.more_horiz_outlined),
+                                                label: "MORE",
                                               ),
                                             ],
                                           ),
-                                        ),
-                                        Container(
-                                            color: Colors.white,
-                                            width: 300,
-                                            height: 300)
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
-
-                                // child:Image.asset(
-                                //   "images/a.png",
-                                //   height: double.infinity,
-                                //   width: double.infinity,
-                                //   fit: BoxFit.cover,
-                                // ),
-                              ),
-                            );
-                          }),
-                        );
-                      },
-                      child: Image.asset(
-                        "images/a.png",
-                        height: double.infinity,
-                        width: double.infinity,
-                        fit: BoxFit.cover,
-                      ),
-                    );
-                  },
+                              );
+                            }),
+                          );
+                        },
+                        child: Image.asset(
+                          "images/3.jpeg",
+                          height: double.infinity,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ),
-            ),
+            if (_selectedTabIndex == 1)
+              Expanded(
+                child: GridView.count(
+                  crossAxisCount: 3,
+                  primary: false,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  children: List.generate(
+                    5,
+                    (index) {
+                      return ElevatedButton(
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: ((context) {
+                              return Dialog(
+                                child: SizedBox(
+                                  height: 550,
+
+                                  // width: double.infinity,
+                                  child: Container(
+                                    // height: 30,
+                                    // width: 30,
+                                    color: Colors.black,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          SizedBox(
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                CircleAvatar(
+                                                  radius: 25,
+                                                  child: ClipOval(
+                                                    child: Image.asset(
+                                                      "images/billieStatus.png",
+                                                      height: 100,
+                                                      width: 100,
+                                                      fit: BoxFit.cover,
+                                                    ),
+                                                  ),
+                                                ),
+                                                const Padding(
+                                                  padding: EdgeInsets.all(8.0),
+                                                  child: Text(
+                                                    "iftikhar_zehri",
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color: Colors.white),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            height: 5,
+                                          ),
+                                          Container(
+                                            color: Colors.black,
+                                            width: double.infinity,
+                                            height: 420,
+                                            child: Image.asset(
+                                              "images/billieStatus.png",
+                                              height: double.infinity,
+                                              width: double.infinity,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                          BottomNavigationBar(
+                                            showUnselectedLabels: false,
+                                            showSelectedLabels: false,
+                                            items: const [
+                                              BottomNavigationBarItem(
+                                                backgroundColor: Colors.black,
+                                                icon: Icon(
+                                                  Icons.favorite_outline,
+                                                  color: Colors.white,
+                                                ),
+                                                label: "FAVORITE",
+                                              ),
+                                              BottomNavigationBarItem(
+                                                icon: Icon(
+                                                    Icons.maps_ugc_outlined),
+                                                label: "MESSAGE",
+                                              ),
+                                              BottomNavigationBarItem(
+                                                icon: Icon(Icons.send),
+                                                label: "SHARE",
+                                              ),
+                                              BottomNavigationBarItem(
+                                                icon: Icon(
+                                                    Icons.more_horiz_outlined),
+                                                label: "MORE",
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }),
+                          );
+                        },
+                        child: Image.asset(
+                          "images/billieStatus.png",
+                          height: double.infinity,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ),
+            if (_selectedTabIndex == 2)
+              Expanded(
+                child: GridView.count(
+                  crossAxisCount: 3,
+                  primary: false,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  children: List.generate(
+                    7,
+                    (index) {
+                      return ElevatedButton(
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: ((context) {
+                              return Dialog(
+                                child: SizedBox(
+                                  height: 550,
+
+                                  // width: double.infinity,
+                                  child: Container(
+                                    // height: 30,
+                                    // width: 30,
+                                    color: Colors.black,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          SizedBox(
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                CircleAvatar(
+                                                  radius: 25,
+                                                  child: ClipOval(
+                                                    child: Image.asset(
+                                                      "images/1.jpeg",
+                                                      // height: 100,
+                                                      // width: 100,
+                                                      fit: BoxFit.fill,
+                                                    ),
+                                                  ),
+                                                ),
+                                                const Padding(
+                                                  padding: EdgeInsets.all(8.0),
+                                                  child: Text(
+                                                    "iftikhar_zehri",
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color: Colors.white),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            height: 5,
+                                          ),
+                                          Container(
+                                            color: Colors.black,
+                                            width: double.infinity,
+                                            height: 420,
+                                            child: Image.asset(
+                                              "images/1.jpeg",
+                                              height: double.infinity,
+                                              width: double.infinity,
+                                              fit: BoxFit.fill,
+                                            ),
+                                          ),
+                                          BottomNavigationBar(
+                                            showUnselectedLabels: false,
+                                            showSelectedLabels: false,
+                                            items: const [
+                                              BottomNavigationBarItem(
+                                                backgroundColor: Colors.black,
+                                                icon: Icon(
+                                                  Icons.favorite_outline,
+                                                  color: Colors.white,
+                                                ),
+                                                label: "FAVORITE",
+                                              ),
+                                              BottomNavigationBarItem(
+                                                icon: Icon(
+                                                    Icons.maps_ugc_outlined),
+                                                label: "MESSAGE",
+                                              ),
+                                              BottomNavigationBarItem(
+                                                icon: Icon(Icons.send),
+                                                label: "SHARE",
+                                              ),
+                                              BottomNavigationBarItem(
+                                                icon: Icon(
+                                                    Icons.more_horiz_outlined),
+                                                label: "MORE",
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }),
+                          );
+                        },
+                        child: Image.asset(
+                          "images/1.jpeg",
+                          height: double.infinity,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ),
           ],
         ),
       ),
