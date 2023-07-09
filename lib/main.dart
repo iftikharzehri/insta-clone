@@ -1,3 +1,4 @@
+// ignore: duplicate_ignore
 // ignore_for_file: camel_case_typ, camel_case_types
 import 'dart:async';
 import 'dart:io';
@@ -13,11 +14,6 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final themeData = ThemeData(
-      canvasColor:
-          Colors.black, // Set the background color for BottomNavigationBar
-      // ... other theme configurations
-    );
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: homeInsta(),
@@ -120,7 +116,7 @@ class _homeclassState extends State<homeclass> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 6,
+      length: 10,
       child: Scaffold(
         appBar: AppBar(
           // toolbarHeight: 80,
@@ -144,124 +140,292 @@ class _homeclassState extends State<homeclass> {
               ],
             ),
           ],
-          bottom: TabBar(
-            isScrollable: true,
-            indicator: null,
-            // indicator: BoxDecoration(
-            //   borderRadius: BorderRadius.circular(25),
-            //   color: Colors. ,
-            // ),
-            tabs: [
-              CircleAvatar(
-                radius: 25,
-                child: ClipOval(
-                  child: Image.asset(
-                    "images/a.png",
-                    fit: BoxFit.cover,
-                    height: 100,
-                    width: 100,
-                  ),
-                ),
-              ),
-              CircleAvatar(
-                radius: 25,
-                child: ClipOval(
-                  child: Image.asset(
-                    "images/billieStatus.png",
-                    fit: BoxFit.cover,
-                    height: 100,
-                    width: 100,
-                  ),
-                ),
-              ),
-              CircleAvatar(
-                radius: 25,
-                child: ClipOval(
-                  child: Image.asset(
-                    "images/heartIcon.png",
-                    fit: BoxFit.cover,
-                    height: 100,
-                    width: 100,
-                  ),
-                ),
-              ),
-              CircleAvatar(
-                radius: 25,
-                child: ClipOval(
-                  child: Image.asset(
-                    "images/a.png",
-                    fit: BoxFit.cover,
-                    height: 100,
-                    width: 100,
-                  ),
-                ),
-              ),
-              CircleAvatar(
-                radius: 25,
-                child: ClipOval(
-                  child: Image.asset(
-                    "images/a.png",
-                    fit: BoxFit.cover,
-                    height: 100,
-                    width: 100,
-                  ),
-                ),
-              ),
-              CircleAvatar(
-                radius: 25,
-                child: ClipOval(
-                  child: Image.asset(
-                    "images/a.png",
-                    fit: BoxFit.cover,
-                    height: 100,
-                    width: 100,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        body: Container(
-          color: Colors.pink,
-          height: 700,
-          child: const Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.all(8),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.account_circle,
-                      size: 50.0,
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.all(8),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "iftikhar zehri",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
+          bottom: PreferredSize(
+            preferredSize: const Size.fromHeight(100),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TabBar(
+                isScrollable: true,
+                indicator: null, padding: const EdgeInsets.only(top: 8),
+                // indicator: BoxDecoration(
+                //   borderRadius: BorderRadius.circular(25),
+                //   color: Colors. ,
+                // ),
+                tabs: [
+                  Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 35,
+                        child: ClipOval(
+                          child: Image.asset(
+                            "images/a.png",
+                            fit: BoxFit.cover,
+                            height: 100,
+                            width: 100,
+                          ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(8),
-                      child: Icon(
-                        Icons.more_vert,
-                        color: Colors.white,
+                      const SizedBox(
+                        height: 8,
                       ),
-                    )
-                  ],
-                ),
+                      const Text("data1"),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 35,
+                        child: ClipOval(
+                          child: Image.asset(
+                            "images/a.png",
+                            fit: BoxFit.cover,
+                            height: 100,
+                            width: 100,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      const Text("data1"),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 35,
+                        child: ClipOval(
+                          child: Image.asset(
+                            "images/a.png",
+                            fit: BoxFit.cover,
+                            height: 100,
+                            width: 100,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      const Text("data1"),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 35,
+                        child: ClipOval(
+                          child: Image.asset(
+                            "images/a.png",
+                            fit: BoxFit.cover,
+                            height: 100,
+                            width: 100,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      const Text("data1"),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 35,
+                        child: ClipOval(
+                          child: Image.asset(
+                            "images/a.png",
+                            fit: BoxFit.cover,
+                            height: 100,
+                            width: 100,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      const Text("data1"),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 35,
+                        child: ClipOval(
+                          child: Image.asset(
+                            "images/a.png",
+                            fit: BoxFit.cover,
+                            height: 100,
+                            width: 100,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      const Text("data1"),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 35,
+                        child: ClipOval(
+                          child: Image.asset(
+                            "images/a.png",
+                            fit: BoxFit.cover,
+                            height: 100,
+                            width: 100,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      const Text("data1"),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 35,
+                        child: ClipOval(
+                          child: Image.asset(
+                            "images/a.png",
+                            fit: BoxFit.cover,
+                            height: 100,
+                            width: 100,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      const Text("data1"),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 35,
+                        child: ClipOval(
+                          child: Image.asset(
+                            "images/a.png",
+                            fit: BoxFit.cover,
+                            height: 100,
+                            width: 100,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      const Text("data1"),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 35,
+                        child: ClipOval(
+                          child: Image.asset(
+                            "images/a.png",
+                            fit: BoxFit.cover,
+                            height: 100,
+                            width: 100,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      const Text("data1"),
+                    ],
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
+        ),
+        body: Column(
+          children: [
+            Container(
+              color: Colors.black,
+              height: 640,
+              child: Column(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(left: 8, right: 8),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.account_circle,
+                          size: 50.0,
+                          color: Colors.white,
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.all(8),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "iftikhar zehri",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(8),
+                          child: Icon(
+                            Icons.more_vert,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 530,
+                    child: Image.asset(
+                      "images/1.jpeg",
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                  const Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child:
+                            Icon(Icons.favorite_outline, color: Colors.white),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Icon(
+                          Icons.maps_ugc_outlined,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Icon(Icons.send, color: Colors.white),
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsets.all(8),
+                          child: Icon(Icons.more_vert, color: Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -334,6 +498,10 @@ class _searchClassState extends State<searchClass> {
           ),
         ),
       ),
+      body: SizedBox(
+          child: Container(
+              color: Colors.cyan,
+              child: const Text("make a grid view and display images"))),
     );
   }
 }
@@ -575,7 +743,7 @@ class _profileClassState extends State<profileClass> {
                     height: 50,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.grey.shade800,
+                        backgroundColor: Colors.grey.shade800,
                       ),
                       onPressed: () {},
                       child: const Align(
