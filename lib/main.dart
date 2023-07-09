@@ -406,7 +406,7 @@ class _profileClassState extends State<profileClass> {
       ),
       body: Container(
         color: Colors.black,
-        height: 440,
+        height: double.infinity,
         // child: Padding(
         //   padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -577,7 +577,7 @@ class _profileClassState extends State<profileClass> {
                           children: [
                             SizedBox(height: 8),
                             Text(
-                              "Professional dashboard",
+                              "Professional Dashboard",
                             ),
                             SizedBox(
                               height: 2,
@@ -588,78 +588,170 @@ class _profileClassState extends State<profileClass> {
                                 fontSize: 12,
                                 fontWeight: FontWeight.normal,
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 8.0,
-                  ),
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        width: 197,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.grey.shade800),
-                          onPressed: () {},
-                          child: Text("Edit profile"),
-                        ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.grey.shade800),
+                                onPressed: () {},
+                                child: Text("Edit profile"),
+                              ),
+                              const SizedBox(
+                                width: 2,
+                              ),
+                              ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.grey.shade800),
+                                onPressed: () {},
+                                child: const Text("Share profile"),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
-                      SizedBox(
-                        width: 197,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.grey.shade800),
-                          onPressed: () {},
-                          child: Text("Edit profile"),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Padding(
               padding: const EdgeInsets.all(14.0),
               child: Row(
                 children: [
-                  CircleAvatar(
-                    radius: 30,
-                    child: ClipOval(
-                      child: Image.asset(
-                        "images/billieStatus.png",
-                        height: 200,
-                        width: 200,
-                        fit: BoxFit.fill,
+                  Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 30,
+                        child: ClipOval(
+                          child: Image.asset(
+                            "images/billieStatus.png",
+                            height: 200,
+                            width: 200,
+                            fit: BoxFit.fill,
+                          ),
+                        ),
                       ),
-                    ),
+                      const Text(
+                        "Highlights",
+                        style: TextStyle(color: Colors.white),
+                      )
+                    ],
                   ),
                   const Padding(
                     padding: EdgeInsets.only(top: 8, left: 18.0),
-                    child: CircleAvatar(
-                      backgroundColor: Colors.white,
-                      radius: 30,
-                      child: CircleAvatar(
-                        radius: 25,
-                        backgroundColor: Colors.grey,
-                        child: Icon(
-                          Icons.add,
-                          size: 40,
+                    child: Column(
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: Colors.white,
+                          radius: 30,
+                          child: CircleAvatar(
+                            radius: 25,
+                            backgroundColor: Colors.grey,
+                            child: Icon(
+                              Icons.add,
+                              size: 40,
+                            ),
+                          ),
                         ),
-                      ),
+                        Text(
+                          "New",
+                          style: TextStyle(color: Colors.white),
+                        )
+                      ],
                     ),
                   ),
                 ],
               ),
-            )
+            ),
+            // const SizedBox(
+            //   height: 50,
+            //
+            //),
+
+            const DefaultTabController(
+              length: 3,
+              child: TabBar(
+                indicatorColor: Colors.white,
+                tabs: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(8),
+                        child: Icon(
+                          Icons.grid_on,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(8),
+                        child: Icon(
+                          Icons.view_sidebar_outlined,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: 20),
+                        child: Icon(
+                          Icons.person_pin_outlined,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+
+            Expanded(
+              child: GridView.count(
+                crossAxisCount: 3,
+                primary: false,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+                children: List.generate(
+                  100,
+                  (index) {
+                    return Image.asset(
+                      "images/a.png",
+                      height: double.infinity,
+                      width: double.infinity,
+                      fit: BoxFit.fill,
+                    );
+                  },
+                ),
+              ),
+            ),
           ],
         ),
         // ),
