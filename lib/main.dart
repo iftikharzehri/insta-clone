@@ -611,7 +611,7 @@ class _profileClassState extends State<profileClass> {
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.grey.shade800),
                                 onPressed: () {},
-                                child: Text("Edit profile"),
+                                child: const Text("Edit profile"),
                               ),
                               const SizedBox(
                                 width: 2,
@@ -742,11 +742,81 @@ class _profileClassState extends State<profileClass> {
                 children: List.generate(
                   100,
                   (index) {
-                    return Image.asset(
-                      "images/a.png",
-                      height: double.infinity,
-                      width: double.infinity,
-                      fit: BoxFit.fill,
+                    return ElevatedButton(
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: ((context) {
+                            return Dialog(
+                              child: SizedBox(
+                                height: 600,
+                                width: 720,
+                                // width: double.infinity,
+                                child: Container(
+                                  height: 30,
+                                  width: 30,
+                                  color: Colors.black,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        SizedBox(
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children: [
+                                              CircleAvatar(
+                                                radius: 25,
+                                                child: ClipOval(
+                                                  child: Image.asset(
+                                                    "images/a.png",
+                                                    height: 100,
+                                                    width: 100,
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                ),
+                                              ),
+                                              const Padding(
+                                                padding: EdgeInsets.all(8.0),
+                                                child: Text(
+                                                  "iftikhar_zehri",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: Colors.white),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Container(
+                                            color: Colors.white,
+                                            width: 300,
+                                            height: 300)
+                                      ],
+                                    ),
+                                  ),
+                                ),
+
+                                // child:Image.asset(
+                                //   "images/a.png",
+                                //   height: double.infinity,
+                                //   width: double.infinity,
+                                //   fit: BoxFit.cover,
+                                // ),
+                              ),
+                            );
+                          }),
+                        );
+                      },
+                      child: Image.asset(
+                        "images/a.png",
+                        height: double.infinity,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
                     );
                   },
                 ),
@@ -754,26 +824,7 @@ class _profileClassState extends State<profileClass> {
             ),
           ],
         ),
-        // ),
       ),
-      // child: GridView.count(
-      //   // Create a grid with 2 columns. If you change the scrollDirection to
-      //   // horizontal, this produces 3 rows.
-      //   crossAxisCount: 3,
-      //   crossAxisSpacing: 4,
-      //   mainAxisSpacing: 1,
-      //   // Generate 100 widgets that display their index in the List.
-      //   children: List.generate(20, (index) {
-      //     return Column(
-      //       children: [
-      //         Padding(
-      //           padding: EdgeInsets.all(3),
-      //           child: Image.asset("images/a.png"),
-      //         ),
-      //       ],
-      //     );
-      //   }),
-      // ),
     );
   }
 }
