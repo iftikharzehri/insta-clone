@@ -176,40 +176,105 @@ class _homeclassState extends State<homeclass> {
               ],
             ),
           ],
-          bottom: TabBar(
-            isScrollable: true,
-            indicator: null,
-            // labelPadding: EdgeInsets.symmetric(horizontal: 16),
-            // padding: const EdgeInsets.all(1),
-            tabs: [
-              for (int i = 0; i < profileImages.length; i++)
-                Tab(
-                  child: SizedBox(
-                    height: 120,
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          CircleAvatar(
-                            radius: 35,
-                            child: ClipOval(
-                              child: Image.network(
-                                profileImages[i],
-                                fit: BoxFit.fitWidth,
-                                height: 100,
-                                width: 100,
-                              ),
-                            ),
-                          ),
-                          Text("data1"),
-                        ],
+          // bottom:
+          // TabBar(
+          //   isScrollable: true,
+          //   indicator: null,
+          //   // labelPadding: EdgeInsets.symmetric(horizontal: 16),
+          //   // padding: const EdgeInsets.all(1),
+          //   tabs: [
+          //     for (int i = 0; i < profileImages.length; i++)
+          //       Tab(
+          //         child: SingleChildScrollView(
+          //           child: Column(
+          //             children: [
+          //               CircleAvatar(
+          //                 radius: 35,
+          //                 child: ClipOval(
+          //                   child: Image.network(
+          //                     profileImages[i],
+          //                     fit: BoxFit.fitWidth,
+          //                     height: 100,
+          //                     width: 100,
+          //                   ),
+          //                 ),
+          //               ),
+          //               Text("data1"),
+          //             ],
+          //           ),
+          //         ),
+          //       ),
+          //   ],
+          // ),
+        ),
+        body: Container(
+          color: Colors.blue,
+          child: Column(
+            verticalDirection: VerticalDirection.down,
+            children: [
+              TabBar(
+                tabs: <Widget>[
+                  CircleAvatar(
+                    backgroundColor: Colors.black,
+                    radius: 30,
+                    child: ClipOval(
+                      child: Image.asset(
+                        "images/1.jpeg",
+                        height: 100,
+                        width: 100,
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
+                  Icon(
+                    Icons.home,
+                    color: Colors.white,
+                  ),
+                  Icon(
+                    Icons.home,
+                    color: Colors.white,
+                  ),
+                  Icon(
+                    Icons.home,
+                    color: Colors.white,
+                  ),
+                  Icon(
+                    Icons.home,
+                    color: Colors.white,
+                  ),
+                  Icon(
+                    Icons.home,
+                    color: Colors.white,
+                  ),
+                  Icon(
+                    Icons.home,
+                    color: Colors.white,
+                  ),
+                  Icon(
+                    Icons.home,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
+              Container(
+                color: Colors.deepOrange,
+                height: 300,
+                width: double.infinity,
+                child:
+                    Text("conatiner 2", style: TextStyle(color: Colors.white)),
+              ),
+              Expanded(
+                child: Container(
+                  color: const Color.fromARGB(255, 229, 34, 255),
+                  height: 300,
+                  width: double.infinity,
+                  child: Text("conatiner 2",
+                      style: TextStyle(color: Colors.white)),
                 ),
+              ),
             ],
           ),
         ),
-
         // child: ListView.builder(
         //   itemBuilder: (BuildContext context, int index) {
         //     return Padding(
@@ -228,94 +293,130 @@ class _homeclassState extends State<homeclass> {
         //   itemCount: imagepaths.length,
         // ),
 
-        // body: ListView.builder(
-        //   itemBuilder: (BuildContext context, int index) {
-        //     return Column(
-        //       children: [
-        //         Container(
-        //           color: Colors.black,
-        //           height: 600,
-        //           child: Column(
-        //             children: [
-        //               Padding(
-        //                 padding: EdgeInsets.only(left: 8, right: 8),
-        //                 child: Row(
-        //                   children: [
-        //                     CircleAvatar(
-        //                       radius: 25,
-        //                       child: ClipOval(
-        //                         child: Image.network(
-        //                           profileImages[index],
-        //                           height: 100,
-        //                           width: 100,
-        //                           fit: BoxFit.cover,
-        //                         ),
+        // body: Column(
+        //   children: [
+        //     TabBar(
+        //       isScrollable: true,
+        //       indicator: null,
+        //       // labelPadding: EdgeInsets.symmetric(horizontal: 16),
+        //       // padding: const EdgeInsets.all(1),
+        //       tabs: [
+        //         for (int i = 0; i < profileImages.length; i++)
+        //           Tab(
+        //             child: SingleChildScrollView(
+        //               child: Column(
+        //                 children: [
+        //                   CircleAvatar(
+        //                     radius: 35,
+        //                     child: ClipOval(
+        //                       child: Image.network(
+        //                         profileImages[i],
+        //                         fit: BoxFit.fitWidth,
+        //                         height: 100,
+        //                         width: 100,
         //                       ),
         //                     ),
-        //                     Expanded(
-        //                       child: Padding(
-        //                         padding: EdgeInsets.all(8),
-        //                         child: Column(
-        //                           crossAxisAlignment: CrossAxisAlignment.start,
+        //                   ),
+        //                   Text("data1"),
+        //                 ],
+        //               ),
+        //             ),
+        //           ),
+        //         ListView.builder(
+        //           itemBuilder: (BuildContext context, int index) {
+        //             return Column(
+        //               children: [
+        //                 Container(
+        //                   color: Colors.black,
+        //                   height: 600,
+        //                   child: Column(
+        //                     children: [
+        //                       Padding(
+        //                         padding: EdgeInsets.only(left: 8, right: 8),
+        //                         child: Row(
         //                           children: [
-        //                             Text(
-        //                               userNames[index],
-        //                               style: const TextStyle(
+        //                             CircleAvatar(
+        //                               radius: 25,
+        //                               child: ClipOval(
+        //                                 child: Image.network(
+        //                                   profileImages[index],
+        //                                   height: 100,
+        //                                   width: 100,
+        //                                   fit: BoxFit.cover,
+        //                                 ),
+        //                               ),
+        //                             ),
+        //                             Expanded(
+        //                               child: Padding(
+        //                                 padding: EdgeInsets.all(8),
+        //                                 child: Column(
+        //                                   crossAxisAlignment:
+        //                                       CrossAxisAlignment.start,
+        //                                   children: [
+        //                                     Text(
+        //                                       userNames[index],
+        //                                       style: const TextStyle(
+        //                                         color: Colors.white,
+        //                                         fontWeight: FontWeight.bold,
+        //                                       ),
+        //                                     ),
+        //                                   ],
+        //                                 ),
+        //                               ),
+        //                             ),
+        //                             const Padding(
+        //                               padding: EdgeInsets.all(8),
+        //                               child: Icon(
+        //                                 Icons.more_vert,
         //                                 color: Colors.white,
-        //                                 fontWeight: FontWeight.bold,
         //                               ),
         //                             ),
         //                           ],
         //                         ),
         //                       ),
-        //                     ),
-        //                     const Padding(
-        //                       padding: EdgeInsets.all(8),
-        //                       child: Icon(
-        //                         Icons.more_vert,
-        //                         color: Colors.white,
+        //                       Expanded(
+        //                         child: Image.network(
+        //                           imagepaths[index],
+        //                         ),
         //                       ),
-        //                     ),
-        //                   ],
+        //                       const Row(
+        //                         children: [
+        //                           Padding(
+        //                             padding: EdgeInsets.all(8.0),
+        //                             child: Icon(Icons.favorite_outline,
+        //                                 color: Colors.white),
+        //                           ),
+        //                           Padding(
+        //                             padding: EdgeInsets.all(8.0),
+        //                             child: Icon(
+        //                               Icons.mode_comment_outlined,
+        //                               color: Colors.white,
+        //                             ),
+        //                           ),
+        //                           Padding(
+        //                             padding: EdgeInsets.all(8.0),
+        //                             child:
+        //                                 Icon(Icons.send, color: Colors.white),
+        //                           ),
+        //                           Expanded(
+        //                             child: Padding(
+        //                               padding: EdgeInsets.all(8),
+        //                               child: Icon(Icons.more_vert,
+        //                                   color: Colors.white),
+        //                             ),
+        //                           ),
+        //                         ],
+        //                       ),
+        //                     ],
+        //                   ),
         //                 ),
-        //               ),
-        //               Expanded(
-        //                 child: Image.network(
-        //                   imagepaths[index],
-        //                 ),
-        //               ),
-        //               const Row(
-        //                 children: [
-        //                   Padding(
-        //                     padding: EdgeInsets.all(8.0),
-        //                     child: Icon(Icons.favorite_outline,
-        //                         color: Colors.white),
-        //                   ),
-        //                   Padding(
-        //                     padding: EdgeInsets.all(8.0),
-        //                     child: Icon(
-        //                       Icons.mode_comment_outlined,
-        //                       color: Colors.white,
-        //                     ),
-        //                   ),
-        //                   Padding(
-        //                     padding: EdgeInsets.all(8.0),
-        //                     child: Icon(Icons.send, color: Colors.white),
-        //                   ),
-        //                   Expanded(
-        //                     child: Padding(
-        //                       padding: EdgeInsets.all(8),
-        //                       child: Icon(Icons.more_vert, color: Colors.white),
-        //                     ),
-        //                   ),
-        //                 ],
-        //               ),
-        //             ],
-        //           ),
+        //               ],
+        //             );
+        //           },
         //         ),
         //       ],
-        //     );
-        //   },
+        //     ),
+        //   ],
         // ),
       ),
     );
