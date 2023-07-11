@@ -177,21 +177,15 @@ class _homeclassState extends State<homeclass> {
               ],
             ),
           ],
-          bottom: PreferredSize(
-            preferredSize: Size.fromHeight(100),
-            child: Padding(
-              padding: EdgeInsets.all(8.0),
-              child: TabBar(
-                isScrollable: true,
-                indicator: null, padding: const EdgeInsets.only(top: 8),
-                // indicator: BoxDecoration(
-                //   borderRadius: BorderRadius.circular(25),
-                //   color: Colors. ,
-                // ),
-                tabs: [
-                  for (int i = 0; i < profileImages.length; i++)
-                    Tab(
-                        child: Column(
+          bottom: TabBar(
+            isScrollable: true,
+            indicator: null,
+            padding: const EdgeInsets.all(1),
+            tabs: [
+              for (int i = 0; i < profileImages.length; i++)
+                Tab(
+                  child: SingleChildScrollView(
+                    child: Column(
                       children: [
                         CircleAvatar(
                           radius: 35,
@@ -204,15 +198,12 @@ class _homeclassState extends State<homeclass> {
                             ),
                           ),
                         ),
-                        const SizedBox(
-                          height: 8,
-                        ),
                         const Text("data1"),
                       ],
-                    )),
-                ],
-              ),
-            ),
+                    ),
+                  ),
+                ),
+            ],
           ),
         ),
 
@@ -233,96 +224,99 @@ class _homeclassState extends State<homeclass> {
         //   },
         //   itemCount: imagepaths.length,
         // ),
-
+        resizeToAvoidBottomInset: false,
         body: ListView.builder(
           itemBuilder: (BuildContext context, int index) {
-            return Column(
-              children: [
-                Container(
-                  color: Colors.black,
-                  height: 640,
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 8, right: 8),
-                        child: Row(
-                          children: [
-                            CircleAvatar(
-                              radius: 25,
-                              child: ClipOval(
-                                child: Image.network(
-                                  profileImages[index],
-                                  height: 100,
-                                  width: 100,
-                                  fit: BoxFit.cover,
+            return SingleChildScrollView(
+              child: Column(
+                children: [
+                  Container(
+                    color: Colors.black,
+                    height: 640,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(left: 8, right: 8),
+                          child: Row(
+                            children: [
+                              CircleAvatar(
+                                radius: 25,
+                                child: ClipOval(
+                                  child: Image.network(
+                                    profileImages[index],
+                                    height: 100,
+                                    width: 100,
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsets.all(8),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        userNames[index],
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.all(8),
+                                child: Icon(
+                                  Icons.more_vert,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Image.network(
+                            imagepaths[index],
+                          ),
+                        ),
+                        const Row(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Icon(Icons.favorite_outline,
+                                  color: Colors.white),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Icon(
+                                Icons.mode_comment_outlined,
+                                color: Colors.white,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Icon(Icons.send, color: Colors.white),
                             ),
                             Expanded(
                               child: Padding(
                                 padding: EdgeInsets.all(8),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      userNames[index],
-                                      style: const TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.all(8),
-                              child: Icon(
-                                Icons.more_vert,
-                                color: Colors.white,
+                                child:
+                                    Icon(Icons.more_vert, color: Colors.white),
                               ),
                             ),
                           ],
                         ),
-                      ),
-                      SizedBox(
-                        height: 500,
-                        child: Image.network(
-                          imagepaths[index],
-                        ),
-                      ),
-                      const Row(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Icon(Icons.favorite_outline,
-                                color: Colors.white),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Icon(
-                              Icons.mode_comment_outlined,
-                              color: Colors.white,
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Icon(Icons.send, color: Colors.white),
-                          ),
-                          Expanded(
-                            child: Padding(
-                              padding: EdgeInsets.all(8),
-                              child: Icon(Icons.more_vert, color: Colors.white),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             );
           },
-          itemCount: imagepaths.length,
         ),
       ),
     );
