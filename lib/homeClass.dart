@@ -50,6 +50,7 @@ class _homeclassState extends State<homeclass> {
     return DefaultTabController(
       length: profileImages.length,
       child: Scaffold(
+        backgroundColor: Colors.grey[300],
         // appBar: AppBar(
         //   // toolbarHeight: 80,
         //   backgroundColor: Colors.black,
@@ -103,24 +104,32 @@ class _homeclassState extends State<homeclass> {
             SliverToBoxAdapter(
               child: Container(
                 color: Colors.black,
-                height: 100,
+                height: 130,
                 width: double.infinity,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (BuildContext context, int index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: CircleAvatar(
-                        radius: 30,
-                        child: ClipOval(
-                          child: Image.network(
-                            imagepaths[index],
-                            fit: BoxFit.cover,
-                            height: 70,
-                            width: 70,
+                    return Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: CircleAvatar(
+                            radius: 40,
+                            child: ClipOval(
+                              child: Image.network(
+                                imagepaths[index],
+                                fit: BoxFit.cover,
+                                height: 70,
+                                width: 70,
+                              ),
+                            ),
                           ),
                         ),
-                      ),
+                        Text(
+                          userNames[index],
+                          style: TextStyle(color: Colors.white),
+                        )
+                      ],
                     );
                   },
                   itemCount: imagepaths.length,
@@ -129,62 +138,123 @@ class _homeclassState extends State<homeclass> {
             ),
             SliverList.builder(
               //making container that contains the post, profile, ions etc
-              itemBuilder: (context, index) {
-                return ClipRect(
+              itemBuilder: (context, int index) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
                   child: Container(
-                    color: index % 2 == 1 ? Colors.amber : Colors.blue,
+                    height: 560,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: index % 2 == 1
+                          ? Colors.purple[100]
+                          : Colors.indigo[100],
+                    ),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ClipRect(
-                        child: Column(
-                          children: [
-                            Row(
-                              children: [
-                                CircleAvatar(
-                                  child: ClipOval(
-                                    child: Image(
-                                      height: 64,
-                                      width: 64,
-                                      fit: BoxFit.cover,
-                                      image: NetworkImage(
-                                        profileImages[index],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    userNames[index],
-                                    style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white),
-                                  ),
-                                ),
-                                const Padding(
-                                  padding: EdgeInsets.all(8),
-                                  child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Column(
+                                children: [
+                                  Row(
                                     children: [
-                                      Row(
-                                        children: [
-                                          Icon(
-                                            Icons.more_vert,
-                                            color: Colors.white,
+                                      CircleAvatar(
+                                        radius: 25,
+                                        child: ClipOval(
+                                          child: Image(
+                                            height: 64,
+                                            width: 64,
+                                            fit: BoxFit.cover,
+                                            image: NetworkImage(
+                                              profileImages[index],
+                                            ),
                                           ),
-                                        ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: [
+                                            Text(
+                                              userNames[index],
+                                              style: const TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.white),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      const Padding(
+                                        padding: EdgeInsets.all(8),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.more_vert,
+                                                  color: Colors.white,
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              Image(
+                                fit: BoxFit.fill,
+                                height: 400,
+                                width: double.infinity,
+                                image: NetworkImage(
+                                  imagepaths[index],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(3.0),
+                                child: Container(
+                                  child: const Row(
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.all(8.0),
+                                        child: Icon(
+                                          Icons.favorite_outline,
+                                          color: Colors.white,
+                                          size: 30,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.all(8.0),
+                                        child: Icon(
+                                          Icons.messenger_outline_outlined,
+                                          color: Colors.white,
+                                          size: 30,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.all(8.0),
+                                        child: Icon(
+                                          Icons.send_outlined,
+                                          color: Colors.white,
+                                          size: 30,
+                                        ),
                                       ),
                                     ],
                                   ),
                                 ),
-                              ],
-                            ),
-                            Image.network(
-                              imagepaths[index],
-                              fit: BoxFit.fill,
-                            ),
-                          ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -193,33 +263,33 @@ class _homeclassState extends State<homeclass> {
               },
               itemCount: imagepaths.length,
             ),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Container(
-                    color: Colors.deepOrange,
-                    height: 200,
-                    child: ListView.builder(
-                      itemBuilder: (BuildContext context, int index) {
-                        return Container(
-                          child: Image(
-                            fit: BoxFit.fill,
-                            height: 60,
-                            width: double.infinity,
-                            image: NetworkImage(
-                              imagepaths[index],
-                            ),
-                          ),
-                        );
-                      },
-                      itemCount: imagepaths.length,
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            // SliverToBoxAdapter(
+            //   child: Padding(
+            //     padding: const EdgeInsets.all(8.0),
+            //     child: ClipRRect(
+            //       borderRadius: BorderRadius.circular(20),
+            //       child: Container(
+            //         color: Colors.deepOrange,
+            //         height: 200,
+            //         child: ListView.builder(
+            //           itemBuilder: (BuildContext context, int index) {
+            //             return Container(
+            //               child: Image(
+            //                 fit: BoxFit.fill,
+            //                 height: 60,
+            //                 width: double.infinity,
+            //                 image: NetworkImage(
+            //                   imagepaths[index],
+            //                 ),
+            //               ),
+            //             );
+            //           },
+            //           itemCount: imagepaths.length,
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
 
             // add the icons here
             //1 fav icon etc
