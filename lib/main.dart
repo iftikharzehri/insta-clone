@@ -154,128 +154,166 @@ class _homeclassState extends State<homeclass> {
     return DefaultTabController(
       length: profileImages.length,
       child: Scaffold(
-        appBar: AppBar(
-          // toolbarHeight: 80,
-          backgroundColor: Colors.black,
-          title: const Text(
-            "Instagram",
-            style: TextStyle(fontFamily: "LobsterTwo", fontSize: 28),
-          ),
+        // appBar: AppBar(
+        //   // toolbarHeight: 80,
+        //   backgroundColor: Colors.black,
+        //   title: const Text(
+        //     "Instagram",
+        //     style: TextStyle(fontFamily: "LobsterTwo", fontSize: 28),
+        //   ),
 
-          actions: const <Widget>[
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(right: 25.0, top: 8),
-                  child: Icon(Icons.favorite_border),
+        //   actions: const <Widget>[
+        //     Row(
+        //       children: [
+        //         Padding(
+        //           padding: EdgeInsets.only(right: 25.0, top: 8),
+        //           child: Icon(Icons.favorite_border),
+        //         ),
+        //         Padding(
+        //           padding: EdgeInsets.only(right: 25, top: 8),
+        //           child: Icon(Icons.maps_ugc_outlined),
+        //         ),
+        //       ],
+        //     ),
+        //   ],
+        // ),
+        body: CustomScrollView(
+          slivers: [
+            //appbar
+            SliverAppBar(
+              backgroundColor: Colors.deepPurple[100],
+              expandedHeight: 220,
+              floating: true,
+              pinned: true,
+              title: const Text(
+                "Instagram",
+                style: TextStyle(fontFamily: "LobsterTwo", fontSize: 28),
+              ),
+              flexibleSpace: FlexibleSpaceBar(
+                background: Icon(Icons.home),
+              ),
+              actions: const <Widget>[
+                Row(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(right: 25.0, top: 8),
+                      child: Icon(Icons.favorite_border),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(right: 25, top: 8),
+                      child: Icon(Icons.maps_ugc_outlined),
+                    ),
+                  ],
                 ),
-                Padding(
-                  padding: EdgeInsets.only(right: 25, top: 8),
-                  child: Icon(Icons.maps_ugc_outlined),
-                )
               ],
             ),
-          ],
-          // bottom:
-          // TabBar(
-          //   isScrollable: true,
-          //   indicator: null,
-          //   // labelPadding: EdgeInsets.symmetric(horizontal: 16),
-          //   // padding: const EdgeInsets.all(1),
-          //   tabs: [
-          //     for (int i = 0; i < profileImages.length; i++)
-          //       Tab(
-          //         child: SingleChildScrollView(
-          //           child: Column(
-          //             children: [
-          //               CircleAvatar(
-          //                 radius: 35,
-          //                 child: ClipOval(
-          //                   child: Image.network(
-          //                     profileImages[i],
-          //                     fit: BoxFit.fitWidth,
-          //                     height: 100,
-          //                     width: 100,
-          //                   ),
-          //                 ),
-          //               ),
-          //               Text("data1"),
-          //             ],
-          //           ),
-          //         ),
-          //       ),
-          //   ],
-          // ),
-        ),
-        body: Container(
-          color: Colors.blue,
-          child: Column(
-            verticalDirection: VerticalDirection.down,
-            children: [
-              TabBar(
-                tabs: <Widget>[
-                  CircleAvatar(
-                    backgroundColor: Colors.black,
-                    radius: 30,
-                    child: ClipOval(
-                      child: Image.asset(
-                        "images/1.jpeg",
-                        height: 100,
-                        width: 100,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
+            //sliveritems
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Container(
+                    color: Colors.deepOrange,
+                    height: 200,
                   ),
-                  Icon(
-                    Icons.home,
-                    color: Colors.white,
-                  ),
-                  Icon(
-                    Icons.home,
-                    color: Colors.white,
-                  ),
-                  Icon(
-                    Icons.home,
-                    color: Colors.white,
-                  ),
-                  Icon(
-                    Icons.home,
-                    color: Colors.white,
-                  ),
-                  Icon(
-                    Icons.home,
-                    color: Colors.white,
-                  ),
-                  Icon(
-                    Icons.home,
-                    color: Colors.white,
-                  ),
-                  Icon(
-                    Icons.home,
-                    color: Colors.white,
-                  ),
-                ],
-              ),
-              Container(
-                color: Colors.deepOrange,
-                height: 300,
-                width: double.infinity,
-                child:
-                    Text("conatiner 2", style: TextStyle(color: Colors.white)),
-              ),
-              Expanded(
-                child: Container(
-                  color: const Color.fromARGB(255, 229, 34, 255),
-                  height: 300,
-                  width: double.infinity,
-                  child: Text("conatiner 2",
-                      style: TextStyle(color: Colors.white)),
                 ),
               ),
-            ],
-          ),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Container(
+                    color: Colors.deepOrange,
+                    height: 200,
+                  ),
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Container(
+                    color: Colors.deepOrange,
+                    height: 200,
+                  ),
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Container(
+                    color: Colors.deepOrange,
+                    height: 200,
+                  ),
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Container(
+                    color: Colors.deepOrange,
+                    height: 200,
+                  ),
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Container(
+                    color: Colors.deepOrange,
+                    height: 200,
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
-        // child: ListView.builder(
+        // bottom:
+        // TabBar(
+        //   isScrollable: true,
+        //   indicator: null,
+        //   // labelPadding: EdgeInsets.symmetric(horizontal: 16),
+        //   // padding: const EdgeInsets.all(1),
+        //   tabs: [
+        //     for (int i = 0; i < profileImages.length; i++)
+        //       Tab(
+        //         child: SingleChildScrollView(
+        //           child: Column(
+        //             children: [
+        //               CircleAvatar(
+        //                 radius: 35,
+        //                 child: ClipOval(
+        //                   child: Image.network(
+        //                     profileImages[i],
+        //                     fit: BoxFit.fitWidth,
+        //                     height: 100,
+        //                     width: 100,
+        //                   ),
+        //                 ),
+        //               ),
+        //               Text("data1"),
+        //             ],
+        //           ),
+        //         ),
+        //       ),
+        //   ],
+        // ),
+
+        // body: ListView.builder(
         //   itemBuilder: (BuildContext context, int index) {
         //     return Padding(
         //       padding: const EdgeInsets.only(bottom: 8.0),
