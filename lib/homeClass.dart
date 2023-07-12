@@ -76,19 +76,16 @@ class _homeclassState extends State<homeclass> {
         body: CustomScrollView(
           slivers: [
             //appbar
-            SliverAppBar(
-              backgroundColor: Colors.deepPurple[100],
-              expandedHeight: 220,
+            const SliverAppBar(
+              backgroundColor: Colors.black,
+              expandedHeight: 50,
               floating: true,
-              pinned: true,
-              title: const Text(
+              pinned: false,
+              title: Text(
                 "Instagram",
                 style: TextStyle(fontFamily: "LobsterTwo", fontSize: 28),
               ),
-              flexibleSpace: FlexibleSpaceBar(
-                background: Icon(Icons.home),
-              ),
-              actions: const <Widget>[
+              actions: <Widget>[
                 Row(
                   children: [
                     Padding(
@@ -103,18 +100,98 @@ class _homeclassState extends State<homeclass> {
                 ),
               ],
             ),
-            //sliveritems
             SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Container(
-                    color: Colors.deepOrange,
-                    height: 200,
-                  ),
+              child: Container(
+                color: Colors.black,
+                height: 100,
+                width: double.infinity,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CircleAvatar(
+                        radius: 30,
+                        child: ClipOval(
+                          child: Image.network(
+                            imagepaths[index],
+                            fit: BoxFit.cover,
+                            height: 70,
+                            width: 70,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                  itemCount: imagepaths.length,
                 ),
               ),
+            ),
+            SliverList.builder(
+              //making container that contains the post, profile, ions etc
+              itemBuilder: (context, index) {
+                return ClipRect(
+                  child: Container(
+                    color: index % 2 == 1 ? Colors.amber : Colors.blue,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ClipRect(
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                CircleAvatar(
+                                  child: ClipOval(
+                                    child: Image(
+                                      height: 64,
+                                      width: 64,
+                                      fit: BoxFit.cover,
+                                      image: NetworkImage(
+                                        profileImages[index],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    userNames[index],
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white),
+                                  ),
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.all(8),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Icon(
+                                            Icons.more_vert,
+                                            color: Colors.white,
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Image.network(
+                              imagepaths[index],
+                              fit: BoxFit.fill,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              },
+              itemCount: imagepaths.length,
             ),
             SliverToBoxAdapter(
               child: Padding(
@@ -124,62 +201,39 @@ class _homeclassState extends State<homeclass> {
                   child: Container(
                     color: Colors.deepOrange,
                     height: 200,
+                    child: ListView.builder(
+                      itemBuilder: (BuildContext context, int index) {
+                        return Container(
+                          child: Image(
+                            fit: BoxFit.fill,
+                            height: 60,
+                            width: double.infinity,
+                            image: NetworkImage(
+                              imagepaths[index],
+                            ),
+                          ),
+                        );
+                      },
+                      itemCount: imagepaths.length,
+                    ),
                   ),
                 ),
               ),
             ),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Container(
-                    color: Colors.deepOrange,
-                    height: 200,
-                  ),
-                ),
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Container(
-                    color: Colors.deepOrange,
-                    height: 200,
-                  ),
-                ),
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Container(
-                    color: Colors.deepOrange,
-                    height: 200,
-                  ),
-                ),
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Container(
-                    color: Colors.deepOrange,
-                    height: 200,
-                  ),
-                ),
-              ),
-            ),
+
+            // add the icons here
+            //1 fav icon etc
           ],
         ),
-        // bottom:
-        // TabBar(
+        // ), const Row(
+        // //                         children: [
+        // //                           Padding(
+        // //                             padding: EdgeInsets.all(8.0),
+        // //                             child: Icon(Icons.favorite_outline,
+        // //                                 color: Colors.white),
+        // //                           ),
+        // // bottom:
+        // // TabBar(
         //   isScrollable: true,
         //   indicator: null,
         //   // labelPadding: EdgeInsets.symmetric(horizontal: 16),

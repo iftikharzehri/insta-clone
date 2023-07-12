@@ -1,9 +1,9 @@
 // ignore: duplicate_ignore
 // ignore_for_file: camel_case_typ, camel_case_types
-import 'dart:async';
-import 'dart:io';
+// import 'dart:async';
+// import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/profileClass.dart';
+// import 'package:instagram_clone/profileClass.dart';
 
 import 'homeInsta.dart';
 // import 'package:path/path.dart';
