@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:readmore/readmore.dart';
 
 //home class
 class homeclass extends StatefulWidget {
@@ -44,7 +45,24 @@ class _homeclassState extends State<homeclass> {
     // "Mark",
     // "elon musk",
   ];
-
+  List likes = [
+    "23324",
+    "46346",
+    "75746",
+    "3453",
+    "1213",
+    "987575463452",
+    "3123432",
+  ];
+  List<String> description = [
+    " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum iaculis lorem quis sapien interdum feugiat. Curabitur accumsan eros sed urna maximus, a mollis erat euismod. Etiam sem enim, eleifend in congue ac, mollis ac arcu. Morbi neque ligula, dignissim in gravida vel, venenatis id leo. Curabitur malesuada aliquet vehicula. Curabitur non ante ipsum. Morbi ac velit orci. Ut feugiat ullamcorper condimentum. Aliquam vel nisl eu ex tincidunt blandit. ",
+    " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum iaculis lorem quis sapien interdum feugiat. Curabitur accumsan eros sed urna maximus, a mollis erat euismod. Etiam sem enim, eleifend in congue ac, mollis ac arcu. Morbi neque ligula, dignissim in gravida vel, venenatis id leo. Curabitur malesuada aliquet vehicula. Curabitur non ante ipsum. Morbi ac velit orci. Ut feugiat ullamcorper condimentum. Aliquam vel nisl eu ex tincidunt blandit. ",
+    " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum iaculis lorem quis sapien interdum feugiat. Curabitur accumsan eros sed urna maximus, a mollis erat euismod. Etiam sem enim, eleifend in congue ac, mollis ac arcu. Morbi neque ligula, dignissim in gravida vel, venenatis id leo. Curabitur malesuada aliquet vehicula. Curabitur non ante ipsum. Morbi ac velit orci. Ut feugiat ullamcorper condimentum. Aliquam vel nisl eu ex tincidunt blandit. ",
+    " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum iaculis lorem quis sapien interdum feugiat. Curabitur accumsan eros sed urna maximus, a mollis erat euismod. Etiam sem enim, eleifend in congue ac, mollis ac arcu. Morbi neque ligula, dignissim in gravida vel, venenatis id leo. Curabitur malesuada aliquet vehicula. Curabitur non ante ipsum. Morbi ac velit orci. Ut feugiat ullamcorper condimentum. Aliquam vel nisl eu ex tincidunt blandit. ",
+    " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum iaculis lorem quis sapien interdum feugiat. Curabitur accumsan eros sed urna maximus, a mollis erat euismod. Etiam sem enim, eleifend in congue ac, mollis ac arcu. Morbi neque ligula, dignissim in gravida vel, venenatis id leo. Curabitur malesuada aliquet vehicula. Curabitur non ante ipsum. Morbi ac velit orci. Ut feugiat ullamcorper condimentum. Aliquam vel nisl eu ex tincidunt blandit. ",
+    " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum iaculis lorem quis sapien interdum feugiat. Curabitur accumsan eros sed urna maximus, a mollis erat euismod. Etiam sem enim, eleifend in congue ac, mollis ac arcu. Morbi neque ligula, dignissim in gravida vel, venenatis id leo. Curabitur malesuada aliquet vehicula. Curabitur non ante ipsum. Morbi ac velit orci. Ut feugiat ullamcorper condimentum. Aliquam vel nisl eu ex tincidunt blandit. ",
+    " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum iaculis lorem quis sapien interdum feugiat. Curabitur accumsan eros sed urna maximus, a mollis erat euismod. Etiam sem enim, eleifend in congue ac, mollis ac arcu. Morbi neque ligula, dignissim in gravida vel, venenatis id leo. Curabitur malesuada aliquet vehicula. Curabitur non ante ipsum. Morbi ac velit orci. Ut feugiat ullamcorper condimentum. Aliquam vel nisl eu ex tincidunt blandit. ",
+  ];
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -191,21 +209,17 @@ class _homeclassState extends State<homeclass> {
                                           ],
                                         ),
                                       ),
-                                      const Padding(
-                                        padding: EdgeInsets.all(8),
-                                        child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Row(
-                                              children: [
-                                                Icon(
-                                                  Icons.more_vert,
-                                                  color: Colors.white,
-                                                ),
-                                              ],
-                                            ),
-                                          ],
+                                      const Expanded(
+                                        child: Padding(
+                                          padding: EdgeInsets.all(8),
+                                          child: Row(
+                                            children: [
+                                              Icon(
+                                                Icons.more_vert,
+                                                color: Colors.white,
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -214,16 +228,16 @@ class _homeclassState extends State<homeclass> {
                               ),
                               Image(
                                 fit: BoxFit.fill,
-                                height: 400,
+                                height: 350,
                                 width: double.infinity,
                                 image: NetworkImage(
                                   imagepaths[index],
                                 ),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.all(3.0),
-                                child: Container(
-                                  child: const Row(
+                              const Expanded(
+                                child: Padding(
+                                  padding: EdgeInsets.all(2.0),
+                                  child: Row(
                                     children: [
                                       Padding(
                                         padding: EdgeInsets.all(8.0),
@@ -249,7 +263,58 @@ class _homeclassState extends State<homeclass> {
                                           size: 30,
                                         ),
                                       ),
+                                      Expanded(
+                                        child: SizedBox(
+                                          width: double.infinity,
+                                        ),
+                                      ),
+                                      Icon(
+                                        Icons.save_alt_rounded,
+                                        color: Colors.white,
+                                      ),
                                     ],
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 12.0, bottom: 8),
+                                child: Text(likes[index] + " likes"),
+                              ),
+                              Expanded(
+                                child: SingleChildScrollView(
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20),
+                                        color: Colors.deepPurple[300]),
+                                    child: Column(
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Expanded(
+                                              child: Padding(
+                                                padding: EdgeInsets.all(8.0),
+                                                child: ReadMoreText(
+                                                  userNames[index] +
+                                                      description[index],
+                                                  style: const TextStyle(
+                                                      color: Colors.white),
+                                                  trimLines: 2,
+                                                  trimCollapsedText: " more",
+                                                  trimExpandedText: " less",
+                                                  trimMode: TrimMode.Line,
+                                                  textAlign: TextAlign.justify,
+                                                  moreStyle: const TextStyle(
+                                                      color: Colors.white60),
+                                                  lessStyle: const TextStyle(
+                                                      color: Colors.white60),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
