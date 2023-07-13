@@ -121,7 +121,16 @@ class _homeclassState extends State<homeclass> {
             ),
             SliverToBoxAdapter(
               child: Container(
-                color: Colors.black,
+                decoration: const BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 10,
+                      color: Colors.black,
+                      spreadRadius: 5,
+                    ),
+                  ],
+                  color: Colors.black,
+                ),
                 height: 130,
                 width: double.infinity,
                 child: ListView.builder(
@@ -145,7 +154,15 @@ class _homeclassState extends State<homeclass> {
                         ),
                         Text(
                           userNames[index],
-                          style: TextStyle(color: Colors.white),
+                          style: const TextStyle(
+                            color: Colors.white,
+                            shadows: <Shadow>[
+                              Shadow(
+                                offset: Offset(2, 2),
+                                blurRadius: 8,
+                              )
+                            ],
+                          ),
                         )
                       ],
                     );
@@ -162,6 +179,12 @@ class _homeclassState extends State<homeclass> {
                   child: Container(
                     height: 560,
                     decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                            blurRadius: 10,
+                            color: Colors.purple.shade200,
+                            spreadRadius: 5)
+                      ],
                       borderRadius: BorderRadius.circular(20),
                       color: index % 2 == 1
                           ? Colors.purple[100]
@@ -181,15 +204,18 @@ class _homeclassState extends State<homeclass> {
                                 children: [
                                   Row(
                                     children: [
-                                      CircleAvatar(
-                                        radius: 25,
-                                        child: ClipOval(
-                                          child: Image(
-                                            height: 64,
-                                            width: 64,
-                                            fit: BoxFit.cover,
-                                            image: NetworkImage(
-                                              profileImages[index],
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: CircleAvatar(
+                                          radius: 25,
+                                          child: ClipOval(
+                                            child: Image(
+                                              height: 64,
+                                              width: 64,
+                                              fit: BoxFit.cover,
+                                              image: NetworkImage(
+                                                profileImages[index],
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -203,23 +229,29 @@ class _homeclassState extends State<homeclass> {
                                             Text(
                                               userNames[index],
                                               style: const TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Colors.white),
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white,
+                                                shadows: <Shadow>[
+                                                  Shadow(
+                                                    offset: Offset(2, 2),
+                                                    blurRadius: 8,
+                                                  )
+                                                ],
+                                              ),
                                             ),
                                           ],
                                         ),
                                       ),
                                       const Expanded(
-                                        child: Padding(
-                                          padding: EdgeInsets.all(8),
-                                          child: Row(
-                                            children: [
-                                              Icon(
-                                                Icons.more_vert,
-                                                color: Colors.white,
-                                              ),
-                                            ],
-                                          ),
+                                        child: Icon(
+                                          Icons.more_vert,
+                                          color: Colors.white,
+                                          shadows: <Shadow>[
+                                            Shadow(
+                                              offset: Offset(2, 2),
+                                              blurRadius: 8,
+                                            )
+                                          ],
                                         ),
                                       ),
                                     ],
@@ -245,6 +277,12 @@ class _homeclassState extends State<homeclass> {
                                           Icons.favorite_outline,
                                           color: Colors.white,
                                           size: 30,
+                                          shadows: <Shadow>[
+                                            Shadow(
+                                              offset: Offset(2, 2),
+                                              blurRadius: 8,
+                                            )
+                                          ],
                                         ),
                                       ),
                                       Padding(
@@ -253,6 +291,12 @@ class _homeclassState extends State<homeclass> {
                                           Icons.messenger_outline_outlined,
                                           color: Colors.white,
                                           size: 30,
+                                          shadows: <Shadow>[
+                                            Shadow(
+                                              offset: Offset(2, 2),
+                                              blurRadius: 8,
+                                            )
+                                          ],
                                         ),
                                       ),
                                       Padding(
@@ -261,6 +305,12 @@ class _homeclassState extends State<homeclass> {
                                           Icons.send_outlined,
                                           color: Colors.white,
                                           size: 30,
+                                          shadows: <Shadow>[
+                                            Shadow(
+                                              offset: Offset(2, 2),
+                                              blurRadius: 8,
+                                            )
+                                          ],
                                         ),
                                       ),
                                       Expanded(
@@ -271,6 +321,13 @@ class _homeclassState extends State<homeclass> {
                                       Icon(
                                         Icons.save_alt_rounded,
                                         color: Colors.white,
+                                        shadows: <Shadow>[
+                                          Shadow(
+                                            offset: Offset(2, 2),
+                                            blurRadius: 8,
+                                          ),
+                                        ],
+                                        size: 30,
                                       ),
                                     ],
                                   ),
@@ -279,26 +336,46 @@ class _homeclassState extends State<homeclass> {
                               Padding(
                                 padding: const EdgeInsets.only(
                                     left: 12.0, bottom: 8),
-                                child: Text(likes[index] + " likes"),
+                                child: Text(
+                                  likes[index] + " likes",
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    shadows: <Shadow>[
+                                      Shadow(
+                                        offset: Offset(2, 2),
+                                        blurRadius: 8,
+                                      )
+                                    ],
+                                  ),
+                                ),
                               ),
                               Expanded(
                                 child: SingleChildScrollView(
                                   child: Container(
                                     decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        color: Colors.deepPurple[300]),
+                                      borderRadius: BorderRadius.circular(20),
+                                      color: Colors.deepPurple[300],
+                                    ),
                                     child: Column(
                                       children: [
                                         Row(
                                           children: [
                                             Expanded(
                                               child: Padding(
-                                                padding: EdgeInsets.all(8.0),
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
                                                 child: ReadMoreText(
                                                   userNames[index] +
                                                       description[index],
                                                   style: const TextStyle(
-                                                      color: Colors.white),
+                                                    color: Colors.white,
+                                                    shadows: <Shadow>[
+                                                      Shadow(
+                                                        offset: Offset(2, 2),
+                                                        blurRadius: 8,
+                                                      )
+                                                    ],
+                                                  ),
                                                   trimLines: 2,
                                                   trimCollapsedText: " more",
                                                   trimExpandedText: " less",
