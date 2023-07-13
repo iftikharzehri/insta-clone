@@ -3,6 +3,7 @@ import 'package:instagram_clone/profileClass.dart';
 
 import 'homeClass.dart';
 import 'main.dart';
+import 'postClass.dart';
 import 'searchClass.dart';
 
 // ignore: camel_case_types

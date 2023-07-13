@@ -722,7 +722,7 @@ class _profileClassState extends State<profileClass> {
                           );
                         },
                         child: Image.asset(
-                          "images/1.jpeg",
+                          "images/2.jpeg",
                           height: double.infinity,
                           width: double.infinity,
                           fit: BoxFit.cover,
