@@ -172,7 +172,7 @@ class _homeclassState extends State<homeclass> {
               ),
             ),
             SliverList.builder(
-              //making container that contains the post, profile, ions etc
+              //making container that contains the post, profile, icons etc
               itemBuilder: (context, int index) {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),

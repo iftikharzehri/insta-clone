@@ -338,7 +338,7 @@ class _profileClassState extends State<profileClass> {
                               padding: EdgeInsets.all(8),
                               child: Icon(
                                 Icons.grid_on,
-                                color: Colors.blue,
+                                color: Colors.white,
                               ),
                             ),
                           ],
@@ -370,26 +370,47 @@ class _profileClassState extends State<profileClass> {
                       ],
                     ),
                   ),
-                  Container(
-                    color: const Color.fromARGB(255, 109, 88, 26),
-                    height: 200,
-                  ),
-                  Container(
-                    color: Colors.amber,
-                    height: 200,
-                  ),
-                  Container(
-                    color: const Color.fromARGB(255, 7, 160, 255),
-                    height: 200,
-                  ),
-                  Container(
-                    color: Colors.amber,
-                    height: 200,
-                  ),
                 ],
               ),
             ),
-          )
+          ),
+          if (_selectedTabIndex == 0)
+            SliverToBoxAdapter(
+              child: Container(
+                height: 200,
+                width: 200,
+                color: Colors.amber,
+                child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                  ),
+                  itemCount: 10,
+                  itemBuilder: (BuildContext context, int index) {
+                    return const Image(
+                      image: NetworkImage(
+                          "https://images.pexels.com/photos/4495426/pexels-photo-4495426.jpeg"),
+                    );
+                  },
+                ),
+              ),
+            ),
+          if (_selectedTabIndex == 1)
+            SliverToBoxAdapter(
+              child: SizedBox(
+                child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                  ),
+                  itemCount: 10,
+                  itemBuilder: (BuildContext context, int index) {
+                    return const Image(
+                      image: NetworkImage(
+                          "https://images.pexels.com/photos/17565395/pexels-photo-17565395/free-photo-of-wood-fashion-man-people.jpeg"),
+                    );
+                  },
+                ),
+              ),
+            ),
         ],
       ),
 
