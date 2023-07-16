@@ -1,6 +1,8 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 //profil class
 
+// ignore: camel_case_types
 class profileClass extends StatefulWidget {
   const profileClass({super.key});
 
@@ -8,6 +10,7 @@ class profileClass extends StatefulWidget {
   State<profileClass> createState() => _profileClassState();
 }
 
+// ignore: camel_case_types
 class _profileClassState extends State<profileClass> {
   int _selectedTabIndex = 0;
   @override
@@ -15,9 +18,17 @@ class _profileClassState extends State<profileClass> {
     return Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
-          SliverAppBar(
+          const SliverAppBar(
             backgroundColor: Colors.black,
-            title: Text("iftikharzehri"),
+            title: Row(
+              children: [
+                Text("iftikhar_zehri"),
+                Icon(
+                  Icons.expand_circle_down_outlined,
+                  color: Colors.white,
+                )
+              ],
+            ),
             actions: [
               Icon(
                 Icons.add_box_outlined,
@@ -34,28 +45,351 @@ class _profileClassState extends State<profileClass> {
           ),
           SliverToBoxAdapter(
             child: Container(
-              child: Row(
+              height: 500,
+              color: Colors.black,
+              child: Column(
                 children: [
+                  const Row(
+                    // crossAxisAlignment: CrossAxisAlignment.start,
+                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Column(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(top: 20.0, left: 8),
+                                //  profile image
+                                child: CircleAvatar(
+                                  radius: 35,
+                                  child: ClipOval(
+                                    child: Image(
+                                      height: 100,
+                                      width: 100,
+                                      fit: BoxFit.cover,
+                                      image: NetworkImage(
+                                          "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg"),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                //user name
+                                padding: EdgeInsets.only(top: 8.0, left: 15),
+                                child: Text(
+                                  "iftikhar zehri",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "CS student 🎓",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                    Text(
+                                      "programmer 💻",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                    Text(
+                                      "Artist 🖌",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                    Text(
+                                      "that's it ....🤷🤷",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            width: 22,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(25.0),
+                            child: Row(
+                              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  // total number of posts with text "post"
+                                  children: [
+                                    Text(
+                                      "30",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 22,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text(
+                                      "Posts",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Column(
+                                  // mainAxisAlignment: MainAxisAlignment.end,
+                                  // total number of followers with text "followers"
+                                  children: [
+                                    Text(
+                                      "2312",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 22,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text(
+                                      "Followers",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Column(
+                                  // total number of following with text "following"
+                                  children: [
+                                    Text(
+                                      "12",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 22,
+                                      ),
+                                    ),
+                                    SizedBox(height: 10),
+                                    Text(
+                                      "Following",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
                   Column(
                     children: [
-                      CircleAvatar(
-                        radius: 25,
-                        child: ClipOval(
-                          child: Image(
-                            height: 100,
-                            width: 100,
-                            fit: BoxFit.cover,
-                            image: NetworkImage(
-                                "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg"),
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.grey[800],
+                            alignment: Alignment.centerLeft,
+                          ),
+                          onPressed: () {},
+                          child: const Column(
+                            children: [
+                              Text(
+                                "Professional Dashboard",
+                              ),
+                              Text(
+                                "29 accounts reached in the last 30 days.",
+                                style: TextStyle(
+                                    fontSize: 12, color: Colors.white70),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: double.infinity,
+                        child: Padding(
+                          padding: const EdgeInsets.all(3.0),
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.grey[800],
+                                    alignment: Alignment.centerLeft,
+                                  ),
+                                  onPressed: () {},
+                                  child: const Text("Edit Profile"),
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              SizedBox(
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.grey[800],
+                                    alignment: Alignment.centerLeft,
+                                  ),
+                                  onPressed: () {},
+                                  child: const Text("Share Profile"),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
                     ],
                   ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        const Column(
+                          children: [
+                            CircleAvatar(
+                              radius: 30,
+                              child: ClipOval(
+                                child: Image(
+                                  height: 200,
+                                  width: 200,
+                                  fit: BoxFit.fill,
+                                  image: NetworkImage(
+                                      "https://images.pexels.com/photos/14010742/pexels-photo-14010742.jpeg"),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            Text(
+                              "Highlights",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        Column(
+                          children: [
+                            CircleAvatar(
+                              radius: 30,
+                              child: ClipOval(
+                                child: Image.asset(
+                                  "images/billieStatus.png",
+                                  height: 200,
+                                  width: 200,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 8,
+                            ),
+                            const Text(
+                              "Highlights",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
           ),
+          SliverToBoxAdapter(
+            child: Container(
+              color: Colors.black,
+              child: Column(
+                children: [
+                  DefaultTabController(
+                    length: 3,
+                    child: TabBar(
+                      onTap: (index) {
+                        setState(() {
+                          _selectedTabIndex = index;
+                        });
+                      },
+                      indicatorColor: Colors.white,
+                      tabs: const [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.all(8),
+                              child: Icon(
+                                Icons.grid_on,
+                                color: Colors.blue,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.all(8),
+                              child: Icon(
+                                Icons.view_sidebar_outlined,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(left: 20),
+                              child: Icon(
+                                Icons.person_pin_outlined,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    color: const Color.fromARGB(255, 109, 88, 26),
+                    height: 200,
+                  ),
+                  Container(
+                    color: Colors.amber,
+                    height: 200,
+                  ),
+                  Container(
+                    color: const Color.fromARGB(255, 7, 160, 255),
+                    height: 200,
+                  ),
+                  Container(
+                    color: Colors.amber,
+                    height: 200,
+                  ),
+                ],
+              ),
+            ),
+          )
         ],
       ),
 

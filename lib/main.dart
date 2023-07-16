@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/profileClass.dart';
 
-import 'homeInsta.dart';
+// import 'homeInsta.dart';
 
 void main() {
   runApp(const MyApp());
