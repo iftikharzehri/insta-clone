@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:camera/camera.dart';
+// import 'package:camera/camera.dart';
 //post class
 
 class addPostClass extends StatefulWidget {
