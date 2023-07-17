@@ -1,5 +1,6 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
+import 'package:path/path.dart';
 //profil class
 
 // ignore: camel_case_types
@@ -12,6 +13,58 @@ class profileClass extends StatefulWidget {
 
 // ignore: camel_case_types
 class _profileClassState extends State<profileClass> {
+  List imagepaths = [
+    "https://cdn.pixabay.com/photo/2017/07/31/11/21/people-2557396_1280.jpg",
+    "https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171_960_720.jpg",
+    "https://cdn.pixabay.com/photo/2017/02/01/22/02/mountain-landscape-2031539_960_720.jpg",
+    "https://cdn.pixabay.com/photo/2014/09/14/18/04/dandelion-445228_960_720.jpg",
+    "https://cdn.pixabay.com/photo/2023/07/04/17/28/red-squirrel-8106699_1280.jpg",
+    "https://cdn.pixabay.com/photo/2016/07/11/15/43/pretty-woman-1509956_960_720.jpg",
+    "https://cdn.pixabay.com/photo/2016/02/13/12/26/aurora-1197753_960_720.jpg",
+    "https://cdn.pixabay.com/photo/2016/11/08/05/26/woman-1807533_960_720.jpg",
+    "https://cdn.pixabay.com/photo/2013/11/28/10/03/autumn-219972_960_720.jpg",
+    "https://cdn.pixabay.com/photo/2017/12/17/19/08/away-3024773_960_720.jpg",
+    "https://cdn.pixabay.com/photo/2018/05/15/23/02/football-stadium-3404535_640.jpg",
+    "https://cdn.pixabay.com/photo/2017/05/31/10/19/people-2359870_640.jpg",
+    "https://cdn.pixabay.com/photo/2023/07/07/17/47/sushi-8113165_640.jpg"
+  ];
+  List secondTabImages = [
+    "https://cdn.pixabay.com/photo/2013/07/03/13/27/football-142952_640.jpg",
+    "https://cdn.pixabay.com/photo/2016/05/16/21/07/football-1396740_640.jpg",
+    "https://cdn.pixabay.com/photo/2019/09/06/02/52/football-4455306_640.jpg",
+    "https://cdn.pixabay.com/photo/2014/10/14/20/24/ball-488718_640.jpg",
+    "https://cdn.pixabay.com/photo/2016/03/27/20/57/people-1284253_640.jpg",
+    "https://cdn.pixabay.com/photo/2016/09/18/20/47/football-1678992_640.jpg",
+    "https://cdn.pixabay.com/photo/2015/09/19/01/03/guitar-946701_640.jpg",
+    "https://cdn.pixabay.com/photo/2015/05/07/11/02/guitar-756326_640.jpg",
+    "https://cdn.pixabay.com/photo/2016/08/24/20/39/violin-1617972_640.jpg",
+    "https://cdn.pixabay.com/photo/2015/09/19/01/05/country-946706_640.jpg",
+    "https://cdn.pixabay.com/photo/2014/08/30/08/23/binoculars-431488_640.jpg",
+    "https://cdn.pixabay.com/photo/2017/10/17/16/10/fantasy-2861107_1280.jpg",
+    "https://cdn.pixabay.com/photo/2016/03/26/05/17/fractal-1280081_640.jpg",
+    "https://cdn.pixabay.com/photo/2016/03/26/05/35/fractal-1280110_640.jpg",
+    "https://cdn.pixabay.com/photo/2019/04/15/12/32/einstein-4129246_640.jpg",
+  ];
+  List thirdTabImages = [
+    "https://cdn.pixabay.com/photo/2017/10/17/16/10/fantasy-2861107_1280.jpg",
+    "https://cdn.pixabay.com/photo/2016/03/26/05/17/fractal-1280081_640.jpg",
+    "https://cdn.pixabay.com/photo/2016/03/26/05/35/fractal-1280110_640.jpg",
+    "https://cdn.pixabay.com/photo/2019/04/15/12/32/einstein-4129246_640.jpg",
+    "https://cdn.pixabay.com/photo/2017/05/31/10/19/people-2359870_640.jpg",
+    "https://cdn.pixabay.com/photo/2023/07/07/17/47/sushi-8113165_640.jpg",
+    "https://cdn.pixabay.com/photo/2015/05/07/11/02/guitar-756326_640.jpg",
+    "https://cdn.pixabay.com/photo/2016/08/24/20/39/violin-1617972_640.jpg",
+    "https://cdn.pixabay.com/photo/2015/09/19/01/05/country-946706_640.jpg",
+    "https://cdn.pixabay.com/photo/2017/07/31/11/21/people-2557396_1280.jpg",
+    "https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171_960_720.jpg",
+    "https://cdn.pixabay.com/photo/2013/07/03/13/27/football-142952_640.jpg",
+    "https://cdn.pixabay.com/photo/2016/05/16/21/07/football-1396740_640.jpg",
+    "https://cdn.pixabay.com/photo/2014/10/14/20/24/ball-488718_640.jpg",
+    "https://cdn.pixabay.com/photo/2016/03/27/20/57/people-1284253_640.jpg",
+    "https://cdn.pixabay.com/photo/2016/02/13/12/26/aurora-1197753_960_720.jpg",
+    "https://cdn.pixabay.com/photo/2016/11/08/05/26/woman-1807533_960_720.jpg",
+    "https://cdn.pixabay.com/photo/2013/11/28/10/03/autumn-219972_960_720.jpg",
+  ];
   int _selectedTabIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -45,7 +98,7 @@ class _profileClassState extends State<profileClass> {
           ),
           SliverToBoxAdapter(
             child: Container(
-              height: 500,
+              height: 430,
               color: Colors.black,
               child: Column(
                 children: [
@@ -222,37 +275,34 @@ class _profileClassState extends State<profileClass> {
                           ),
                         ),
                       ),
-                      SizedBox(
-                        width: double.infinity,
-                        child: Padding(
-                          padding: const EdgeInsets.all(3.0),
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.grey[800],
-                                    alignment: Alignment.centerLeft,
-                                  ),
-                                  onPressed: () {},
-                                  child: const Text("Edit Profile"),
+                      Padding(
+                        padding: const EdgeInsets.all(3.0),
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.grey[800],
+                                  alignment: Alignment.centerLeft,
                                 ),
+                                onPressed: () {},
+                                child: const Text("Edit Profile"),
                               ),
-                              const SizedBox(
-                                width: 5,
-                              ),
-                              SizedBox(
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.grey[800],
-                                    alignment: Alignment.centerLeft,
-                                  ),
-                                  onPressed: () {},
-                                  child: const Text("Share Profile"),
+                            ),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            SizedBox(
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.grey[800],
+                                  alignment: Alignment.centerLeft,
                                 ),
+                                onPressed: () {},
+                                child: const Text("Share Profile"),
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
@@ -375,44 +425,420 @@ class _profileClassState extends State<profileClass> {
             ),
           ),
           if (_selectedTabIndex == 0)
-            SliverToBoxAdapter(
-              child: Container(
-                height: 200,
-                width: 200,
-                color: Colors.amber,
-                child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                  ),
-                  itemCount: 10,
-                  itemBuilder: (BuildContext context, int index) {
-                    return const Image(
+            //making a grid layout to show the all posts that were made by the user
+            SliverGrid(
+              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 200.0,
+                // mainAxisSpacing: 4.0,
+                // crossAxisSpacing: 5.0,
+                // childAspectRatio: 2.0,
+                // crossAxisCount: 3,
+              ),
+              delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) {
+                  return ElevatedButton(
+                    //a button to for a pop up contianer that displays the tpped image
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: ((context) {
+                          return Dialog(
+                            child: SizedBox(
+                              // popup sized bot with the given height
+                              height: 550,
+
+                              // width: double.infinity,
+                              child: Container(
+                                // height: 30,
+                                // width: 30,
+                                color: Colors.black,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const SizedBox(
+                                        child: Row(
+                                          // a field where profile imgae and user name displays
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            CircleAvatar(
+                                              radius: 25,
+                                              child: ClipOval(
+                                                child: Image(
+                                                  height: 100,
+                                                  width: 100,
+                                                  fit: BoxFit.cover,
+                                                  image: NetworkImage(
+                                                      "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg"),
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.all(8.0),
+                                              child: Text(
+                                                "iftikhar_zehri",
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.white),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      Container(
+                                        // a container that contains the seleted image using a url and displays it
+                                        color: Colors.black,
+                                        width: double.infinity,
+                                        height: 420,
+                                        child: Image(
+                                          height: 100,
+                                          width: 100,
+                                          fit: BoxFit.cover,
+                                          image: NetworkImage(
+                                            imagepaths[index],
+                                          ),
+                                        ),
+                                      ), //bottom button for navigation
+                                      BottomNavigationBar(
+                                        showUnselectedLabels: false,
+                                        showSelectedLabels: false,
+                                        items: const [
+                                          BottomNavigationBarItem(
+                                            backgroundColor: Colors.black,
+                                            icon: Icon(
+                                              Icons.favorite_outline,
+                                              color: Colors.white,
+                                            ),
+                                            label: "FAVORITE",
+                                          ),
+                                          BottomNavigationBarItem(
+                                            icon: Icon(Icons.maps_ugc_outlined),
+                                            label: "MESSAGE",
+                                          ),
+                                          BottomNavigationBarItem(
+                                            icon: Icon(Icons.send),
+                                            label: "SHARE",
+                                          ),
+                                          BottomNavigationBarItem(
+                                            icon:
+                                                Icon(Icons.more_horiz_outlined),
+                                            label: "MORE",
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        }),
+                      );
+                    }, // displaying images from a list of images using indexing in a drid layout manner
+                    child: Image(
+                      fit: BoxFit.cover,
+                      height: 300,
+                      width: 300,
                       image: NetworkImage(
-                          "https://images.pexels.com/photos/4495426/pexels-photo-4495426.jpeg"),
-                    );
-                  },
-                ),
+                        imagepaths[index],
+                      ),
+                    ),
+                  );
+                },
+                childCount: imagepaths.length,
               ),
             ),
           if (_selectedTabIndex == 1)
-            SliverToBoxAdapter(
-              child: SizedBox(
-                child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                  ),
-                  itemCount: 10,
-                  itemBuilder: (BuildContext context, int index) {
-                    return const Image(
+            //making a grid layout to show the all posts that were made by the user
+            SliverGrid(
+              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 200.0,
+                // mainAxisSpacing: 4.0,
+                // crossAxisSpacing: 5.0,
+                // childAspectRatio: 2.0,
+                // crossAxisCount: 3,
+              ),
+              delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) {
+                  return ElevatedButton(
+                    //a button to for a pop up contianer that displays the tpped image
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: ((context) {
+                          return Dialog(
+                            child: SizedBox(
+                              // popup sized bot with the given height
+
+                              //
+                              height: 550,
+                              // width: 550,
+
+                              // width: double.infinity,
+                              child: Container(
+                                // height: 30,
+                                // width: 30,
+                                color: Colors.black,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const SizedBox(
+                                        child: Row(
+                                          // a field where profile imgae and user name displays
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            CircleAvatar(
+                                              radius: 25,
+                                              child: ClipOval(
+                                                child: Image(
+                                                  height: 100,
+                                                  width: 100,
+                                                  fit: BoxFit.cover,
+                                                  image: NetworkImage(
+                                                      "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg"),
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.all(8.0),
+                                              child: Text(
+                                                "iftikhar_zehri",
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.white),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      Container(
+                                        // a container that contains the seleted image using a url and displays it
+                                        color: Colors.black,
+                                        width: double.infinity,
+                                        height: 420,
+                                        child: Image(
+                                          height: 100,
+                                          width: 100,
+                                          fit: BoxFit.cover,
+                                          image: NetworkImage(
+                                            secondTabImages[index],
+                                          ),
+                                        ),
+                                      ), //bottom button for navigation
+                                      BottomNavigationBar(
+                                        showUnselectedLabels: false,
+                                        showSelectedLabels: false,
+                                        items: const [
+                                          BottomNavigationBarItem(
+                                            backgroundColor: Colors.black,
+                                            icon: Icon(
+                                              Icons.favorite_outline,
+                                              color: Colors.white,
+                                            ),
+                                            label: "FAVORITE",
+                                          ),
+                                          BottomNavigationBarItem(
+                                            icon: Icon(Icons.maps_ugc_outlined),
+                                            label: "MESSAGE",
+                                          ),
+                                          BottomNavigationBarItem(
+                                            icon: Icon(Icons.send),
+                                            label: "SHARE",
+                                          ),
+                                          BottomNavigationBarItem(
+                                            icon:
+                                                Icon(Icons.more_horiz_outlined),
+                                            label: "MORE",
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        }),
+                      );
+                    }, // displaying images from a list of images using indexing in a drid layout manner
+                    child: Image(
+                      fit: BoxFit.cover,
+                      height: 300,
+                      width: 400,
                       image: NetworkImage(
-                          "https://images.pexels.com/photos/17565395/pexels-photo-17565395/free-photo-of-wood-fashion-man-people.jpeg"),
-                    );
-                  },
-                ),
+                        secondTabImages[index],
+                      ),
+                    ),
+                  );
+                },
+                childCount: secondTabImages.length,
+              ),
+            ),
+          if (_selectedTabIndex == 2)
+            //making a grid layout to show the all posts that were made by the user
+            SliverGrid(
+              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 200.0,
+                // mainAxisSpacing: 4.0,
+                // crossAxisSpacing: 5.0,
+                // childAspectRatio: 2.0,
+                // crossAxisCount: 3,
+              ),
+              delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) {
+                  return ElevatedButton(
+                    //a button to for a pop up contianer that displays the tpped image
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: ((context) {
+                          return Dialog(
+                            child: SizedBox(
+                              // popup sized bot with the given height
+                              height: 550,
+
+                              // width: double.infinity,
+                              child: Container(
+                                // height: 30,
+                                // width: 30,
+                                color: Colors.black,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const SizedBox(
+                                        child: Row(
+                                          // a field where profile imgae and user name displays
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            CircleAvatar(
+                                              radius: 25,
+                                              child: ClipOval(
+                                                child: Image(
+                                                  height: 100,
+                                                  width: 100,
+                                                  fit: BoxFit.cover,
+                                                  image: NetworkImage(
+                                                      "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg"),
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.all(8.0),
+                                              child: Text(
+                                                "iftikhar_zehri",
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.white),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      Container(
+                                        // a container that contains the seleted image using a url and displays it
+                                        color: Colors.black,
+                                        width: double.infinity,
+                                        height: 420,
+                                        child: Image(
+                                          height: 100,
+                                          width: 100,
+                                          fit: BoxFit.cover,
+                                          image: NetworkImage(
+                                            thirdTabImages[index],
+                                          ),
+                                        ),
+                                      ), //bottom button for navigation
+                                      BottomNavigationBar(
+                                        showUnselectedLabels: false,
+                                        showSelectedLabels: false,
+                                        items: const [
+                                          BottomNavigationBarItem(
+                                            backgroundColor: Colors.black,
+                                            icon: Icon(
+                                              Icons.favorite_outline,
+                                              color: Colors.white,
+                                            ),
+                                            label: "FAVORITE",
+                                          ),
+                                          BottomNavigationBarItem(
+                                            icon: Icon(Icons.maps_ugc_outlined),
+                                            label: "MESSAGE",
+                                          ),
+                                          BottomNavigationBarItem(
+                                            icon: Icon(Icons.send),
+                                            label: "SHARE",
+                                          ),
+                                          BottomNavigationBarItem(
+                                            icon:
+                                                Icon(Icons.more_horiz_outlined),
+                                            label: "MORE",
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        }),
+                      );
+                    }, // displaying images from a list of images using indexing in a drid layout manner
+                    child: Image(
+                      fit: BoxFit.cover,
+                      height: 300,
+                      width: 300,
+                      image: NetworkImage(
+                        thirdTabImages[index],
+                      ),
+                    ),
+                  );
+                },
+                childCount: thirdTabImages.length,
               ),
             ),
         ],
       ),
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+//dead code 
+
+
+
+
 
       // appBar: AppBar(
       //   backgroundColor: Colors.black87,
@@ -1136,6 +1562,3 @@ class _profileClassState extends State<profileClass> {
       //     ],
       //   ),
       // ),
-    );
-  }
-}

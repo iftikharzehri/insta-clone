@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/homeInsta.dart';
 import 'package:instagram_clone/profileClass.dart';
 
 // import 'homeInsta.dart';
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: profileClass(),
+      home: homeInsta(),
     );
   }
 }
